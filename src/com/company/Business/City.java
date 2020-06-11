@@ -1,16 +1,20 @@
 package com.company.Business;
 
-public class City {
-    public enum citys{Buenos_Aires, Cordoba, Santiago_de_Chile, Montevideo};
+public enum City {
 
-    public int getDistance(citys city){
-        int distance;
-        switch (city) {
-            case Buenos_Aires:
-            {
+        Buenos_Aires("Buenos Aires"),
+        Cordoba("Cordoba"),
+        Santiago_de_Chile("Santiago de Chile"),
+        Montevideo("Montevideo");
 
-            }
+        private String denomination;
+
+        private City(String denomination) {
+            this.denomination = denomination;
+        };
+
+        public String getDenomination(){
+            return this.denomination;
         }
-
-    }
 }
+
