@@ -1,5 +1,7 @@
 package com.company.UserInterface.Services;
 
+import com.company.Business.Services.BusinessService;
+import com.company.Business.User.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -41,6 +43,7 @@ public class UserInterfaceService implements Initializable {
     }
      */
 
+        private BusinessService businessService;
     //botones de imagenes
     @FXML private ImageView backButtonBook;
     @FXML private ImageView backButtonRegister;
@@ -450,6 +453,10 @@ public class UserInterfaceService implements Initializable {
 
     public void onAccountButtonClicked (ActionEvent event){
         //valido si el id existe y retorno los datos del usuario
+    }
+
+    public void userExistence(int document){
+        User searchedUser = businessService.searchUser(new User(document));
     }
 
     /*

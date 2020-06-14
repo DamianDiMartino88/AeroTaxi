@@ -9,6 +9,9 @@ import com.company.Business.User.User;
 import com.company.DataAccess.Services.DataAccessService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BusinessService {
     BusinessValidation Validations = new BusinessValidation();
     // En esta clase van a estar los metodos que comuniquen la informacion que el usuario ingrese
@@ -23,6 +26,20 @@ public class BusinessService {
     }
      */
 
+    private Map<String, Integer> flightDistance = new HashMap<>();
+    private void setDistances(){
+        this.flightDistance.put("Buenos Aires Cordoba",695);
+        this.flightDistance.put("Buenos Aires Santiago de Chile",1400);
+        this.flightDistance.put("Buenos Aires Montevideo",950);
+        this.flightDistance.put("Cordoba Montevideo",1190);
+        this.flightDistance.put("Cordoba Santiago de Chile",1050);
+        this.flightDistance.put("Montevideo Santiago de Chile",2100);
+    }
+
+    public User searchUser(User user){
+
+        return user;
+    }
     public int dataSave(Object data){
         int response=0;
         if(data instanceof User)
@@ -60,35 +77,4 @@ public class BusinessService {
         return response;
     }
 
-
-
-
-    public int getDistance(String origen, String destino){
-        int distance=0;
-        switch (origen)
-        {
-            case "Buenos Aires":
-            {
-                distance=(destino.equals("Cordoba")?695:(destino.equals("Montevideo")?950:(destino.equals("Santiago del Estero")?1400:0)));
-                break;
-            }
-            case "Cordoba":
-            {
-                distance=(destino.equals("Buenos Aires")?695:(destino.equals("Montevideo")?1190:(destino.equals("Santiago del Estero")?1050:0)));
-                break;
-            }
-            case "Montevideo":
-            {
-                distance=(destino.equals("Cordoba")?1190:(destino.equals("Buenos Aires")?950:(destino.equals("Santiago del Estero")?2100
-                        :0)));
-                break;
-            }
-            case "Santiago del Estero":
-            {
-                distance=(destino.equals("Cordoba")?1050:(destino.equals("Montevideo")?2100:(destino.equals("Buenos Aires")?1400:0)));
-                break;
-            }
-        }
-        return distance;
-    }
 }

@@ -20,6 +20,17 @@ public class User {
         this.userFlightsData=client;
     }
 
+    public User(int userdocument)
+    {
+        this.userCounter++;
+        this.userId=userCounter;
+        this.userName="";
+        this.userLastName="";
+        this.userDocument=userdocument;
+        this.userAge=0;
+        this.userFlightsData=null;
+    }
+
     public User(String username, String userlastname, int userdocument, int userage, Client client)
     {
         this.userCounter++;
