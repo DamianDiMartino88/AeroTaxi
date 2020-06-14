@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Jackson Libraries">
+  <library name="jfoenix-8.0.8 Libreria">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Jackson/Jackson Libraries.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../jfoenix-8.0.8 Libreria.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

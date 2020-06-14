@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_11_01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8_Libreria.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/CityComboBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/UserInterface/UserInterface.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Jackson_Libraries.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_01.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_11_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_11_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_11_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/META-INF/AeroTaxi.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/ICatering.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/ICatering.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/BusinessValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/BusinessValidation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/City.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/DataAccessValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/DataAccessValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/Services/DataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/Services/DataAccessService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/UserInterfaceValidations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/UserInterfaceValidations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +75,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -45,12 +82,19 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Jackson/jackson-databind-2.11.0.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Jackson Libraries/jackson-core-2.11.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\agust\Desktop\vale\AeroTaxi DamiGit\AeroTaxi\src\com\company\UserInterface" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -82,6 +126,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1591650460952">
       <screen x="0" y="0" width="1366" height="728" />
@@ -91,38 +146,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1591221570208" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1591913909300">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="135" key="FileChooserDialogImpl" timestamp="1592083693360">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591913909300" />
-    <state width="1323" height="141" key="GridCell.Tab.0.bottom" timestamp="1591670448641">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="135" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592083693360" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1592084606978">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="141" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591670448641" />
-    <state width="1323" height="141" key="GridCell.Tab.0.center" timestamp="1591670448641">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592084606978" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1592084606978">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="141" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591670448641" />
-    <state width="1323" height="141" key="GridCell.Tab.0.left" timestamp="1591670448641">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592084606978" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1592084606978">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="141" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591670448641" />
-    <state width="1323" height="141" key="GridCell.Tab.0.right" timestamp="1591670448641">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592084606978" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1592084606978">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="141" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591670448641" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1591913949005">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592084606978" />
+    <state x="325" y="0" key="SettingsEditor" timestamp="1592083695606">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1591913949005" />
+    <state x="325" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592083695606" />
     <state x="387" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591233356536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1591233356536" />
-    <state x="32" y="0" key="new project wizard" timestamp="1591143536411">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="36" y="0" key="new project wizard" timestamp="1592084001784">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="32" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1591143536411" />
+    <state x="36" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592084001784" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1591119694096">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
