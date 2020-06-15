@@ -9,8 +9,14 @@ public class SilverPlane extends Plane implements ICatering {
         super();
     }
 
-    public SilverPlane(int fuelcapacity, double costperkm, int passengercapacity, double speed, PropulsionType propulsiontype){
-        super(fuelcapacity, costperkm, passengercapacity,  speed, propulsiontype);
+    //se asignan los valores de capacidad de combustible, costo por kilometro, y velocidad
+    //dependiendo del tipo de propulsion del avion
+    public SilverPlane( PropulsionType propulsiontype){
+        super( (propulsiontype.equals(PropulsionType.PropellerEngine)?3000:(propulsiontype.equals(PropulsionType.PistonsEngine)? 10000 : 150000)),
+                (propulsiontype.equals(PropulsionType.PropellerEngine)?150:(propulsiontype.equals(PropulsionType.PistonsEngine)? 225 : 300))
+                , 10,
+                (propulsiontype.equals(PropulsionType.PropellerEngine)?880:(propulsiontype.equals(PropulsionType.PistonsEngine)? 855 : 2180)),
+                propulsiontype);
     }
     //metodo heredado de ICatering, devuelve " true " para los aviones tipo SILVER
     public boolean availableServices(){

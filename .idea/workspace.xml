@@ -20,21 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_11_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8_Libreria1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/BusinessValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/BusinessValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Services/CityComboBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/CityComboBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/UserInterfaceValidations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/UserInterfaceValidations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,10 +129,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1591650460952">
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592193795537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1591650460952" />
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592193795537" />
     <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591221570208">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,11 +1,32 @@
 package com.company.Business.AeroTaxiCompany.Plane;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Plane {
     private int fuelCapacity;
     private double costPerKM;
     private int passengerCapacity;
     private double speed;
     private PropulsionType propulsionType;
+    List<Plane> planesList;
+
+    public static List<Plane>  addPlanes()
+    {
+        List<Plane> planesList = new ArrayList<>();
+        GoldPlane gold1 =new GoldPlane(PropulsionType.PropellerEngine,false);
+        planesList.add(gold1);
+        planesList.add(new GoldPlane(PropulsionType.PistonsEngine,false));
+        planesList.add(new GoldPlane(PropulsionType.ReactionEngine,true));
+        planesList.add(new SilverPlane(PropulsionType.PropellerEngine));
+        planesList.add(new SilverPlane(PropulsionType.PistonsEngine));
+        planesList.add(new SilverPlane(PropulsionType.ReactionEngine));
+        planesList.add(new BronzePlane(PropulsionType.PropellerEngine));
+        planesList.add(new BronzePlane(PropulsionType.PistonsEngine));
+        planesList.add(new BronzePlane(PropulsionType.ReactionEngine));
+        return planesList;
+    }
+
 
     public Plane(){
         this.fuelCapacity=0;
@@ -22,6 +43,7 @@ public class Plane {
         this.speed=speed;
         this.propulsionType=propulsiontype;
     }
+
 
     public int getFuelCapacity() {
         return fuelCapacity;

@@ -9,8 +9,14 @@ public class GoldPlane extends Plane implements ICatering {
         this.hasWifi=false;
     }
 
-    public GoldPlane(int fuelcapacity, double costperkm, int passengercapacity, double speed, PropulsionType propulsiontype, boolean haswifi){
-        super(fuelcapacity, costperkm, passengercapacity,  speed, propulsiontype);
+    //se asignan los valores de capacidad de combustible, costo por kilometro, y velocidad
+    //dependiendo del tipo de propulsion del avion
+    public GoldPlane( PropulsionType propulsiontype, boolean haswifi){
+        super( (propulsiontype.equals(PropulsionType.PropellerEngine)?3000:(propulsiontype.equals(PropulsionType.PistonsEngine)? 10000 : 150000)),
+                (propulsiontype.equals(PropulsionType.PropellerEngine)?150:(propulsiontype.equals(PropulsionType.PistonsEngine)? 225 : 300))
+                , 10,
+                (propulsiontype.equals(PropulsionType.PropellerEngine)?880:(propulsiontype.equals(PropulsionType.PistonsEngine)? 855 : 2180)),
+                propulsiontype);
         this.hasWifi=haswifi;
     }
 
