@@ -12,5 +12,5 @@ public class Company {
     private List<Plane> planesList;
     private List<User> usersList;
     private List<City> citysList;
-    private List<Flight> flightListsList;
+    private List<CompanyFlight> companyFlightsList;
 }

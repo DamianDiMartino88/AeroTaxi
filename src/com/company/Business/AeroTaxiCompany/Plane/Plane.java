@@ -1,6 +1,7 @@
 package com.company.Business.AeroTaxiCompany.Plane;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Plane {
@@ -11,13 +12,12 @@ public class Plane {
     private PropulsionType propulsionType;
     List<Plane> planesList;
 
-    public static List<Plane>  addPlanes()
+    public static HashSet<Plane>  addPlanes()
     {
-        List<Plane> planesList = new ArrayList<>();
-        GoldPlane gold1 =new GoldPlane(PropulsionType.PropellerEngine,false);
-        planesList.add(gold1);
-        planesList.add(new GoldPlane(PropulsionType.PistonsEngine,false));
-        planesList.add(new GoldPlane(PropulsionType.ReactionEngine,true));
+        HashSet<Plane> planesList = new HashSet<>();
+        planesList.add(new GoldPlane(PropulsionType.PropellerEngine));
+        planesList.add(new GoldPlane(PropulsionType.PistonsEngine));
+        planesList.add(new GoldPlane(PropulsionType.ReactionEngine));
         planesList.add(new SilverPlane(PropulsionType.PropellerEngine));
         planesList.add(new SilverPlane(PropulsionType.PistonsEngine));
         planesList.add(new SilverPlane(PropulsionType.ReactionEngine));
@@ -43,6 +43,7 @@ public class Plane {
         this.speed=speed;
         this.propulsionType=propulsiontype;
     }
+
 
 
     public int getFuelCapacity() {

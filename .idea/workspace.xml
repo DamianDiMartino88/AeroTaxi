@@ -20,13 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/CompanyFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Business/User/UserFlight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8_Libreria.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8_Libreria.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8_Libreria1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/BusinessValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/BusinessValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +68,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jfoenix-8.0.8 Libreria.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jfoenix-8.0.8 Libreria.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -129,18 +136,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592193795537">
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592237890224">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592193795537" />
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592237890224" />
     <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591221570208">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="249" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1591221570208" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592169260171">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592235278973">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592169260171" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592235278973" />
     <state x="521" y="135" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592083693360" />
     <state width="1323" height="140" key="GridCell.Tab.0.bottom" timestamp="1592169384811">
       <screen x="0" y="0" width="1366" height="728" />
@@ -162,10 +169,10 @@
     </state>
     <state width="1323" height="140" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592169384811" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592084606978" />
-    <state x="169" y="0" key="SettingsEditor" timestamp="1592169266088">
+    <state x="169" y="0" key="SettingsEditor" timestamp="1592235301173">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="169" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592169266088" />
+    <state x="169" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592235301173" />
     <state x="325" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592083695606" />
     <state x="387" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591233356536">
       <screen x="0" y="0" width="1366" height="728" />

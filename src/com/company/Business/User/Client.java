@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client{
-    private List<Flight> flightsList;
+    private List<UserFlight> flightsList;
 
 
     public Client()

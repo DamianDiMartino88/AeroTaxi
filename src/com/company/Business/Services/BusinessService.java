@@ -1,11 +1,13 @@
 package com.company.Business.Services;
 
+import com.company.Business.AeroTaxiCompany.CompanyFlight;
 import com.company.Business.AeroTaxiCompany.Plane.*;
 import com.company.Business.BusinessValidation;
 import com.company.Business.City;
 import com.company.Business.User.Client;
 import com.company.Business.User.Flight;
 import com.company.Business.User.User;
+import com.company.Business.User.UserFlight;
 import com.company.DataAccess.Services.DataAccessService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -36,7 +38,7 @@ public class BusinessService {
         this.flightDistance.put("Montevideo Santiago de Chile",2100);
     }
 
-    public int flightCost(Flight flight){
+    public int flightCost(UserFlight flight){
         if(validations.cityValidation(flight.getFlightOrigin(), flight.getFlightDestiny())
             && validations.companionsValidation(flight.getFlightCompanions())) {
             int cost = (getDistance(flight.getFlightOrigin(), flight.getFlightDestiny()) * typeCost(flight.getFlightCategory().getPropulsionType()))
@@ -67,29 +69,29 @@ public class BusinessService {
         return cost;
     }
 
-/*
-    private List<Plane> availablePlanes(Date flightDate)
+
+    private HashSet<Plane> availablePlanes(UserFlight flight)
     {
-        List<Flight> flights = new ArrayList<>();
-        List<Plane> planesCategory = new ArrayList<>();
-        List<PropulsionType> planesType = new ArrayList<>();
-        planesCategory=Plane.addPlanes();
+        List<CompanyFlight> flights = new ArrayList<>(); // llamada al metodo de DataAccess
+        HashSet<Plane> planesCategory = Plane.addPlanes();
+        HashSet<Plane>freePlanes = new HashSet<>();
         if(flights==null){
            return planesCategory;
         }else {
             for (Plane plane :planesCategory) {
-                for (Flight flight : flights) {
-                    if(!pl)
+                for (CompanyFlight confirmedFlight : flights) {
+                    if(!validations.flightType(confirmedFlight,plane)
+                            ||(validations.flightRout(flight,confirmedFlight))
+                            &&validations.flightCapacity(flight.getFlightCompanions(),confirmedFlight))
                     {
-
+                        freePlanes.add(plane);
                     }
                 }
             }
         }
-
-        planes =
+        return freePlanes;
     }
-*/
+
     public User searchUser(User user){
         //user = dataSearch.searchUserInData(user);
         return user;
