@@ -15,15 +15,15 @@ public class Plane {
     public static HashSet<Plane>  addPlanes()
     {
         HashSet<Plane> planesList = new HashSet<>();
-        planesList.add(new GoldPlane(PropulsionType.PropellerEngine));
-        planesList.add(new GoldPlane(PropulsionType.PistonsEngine));
-        planesList.add(new GoldPlane(PropulsionType.ReactionEngine));
-        planesList.add(new SilverPlane(PropulsionType.PropellerEngine));
-        planesList.add(new SilverPlane(PropulsionType.PistonsEngine));
-        planesList.add(new SilverPlane(PropulsionType.ReactionEngine));
-        planesList.add(new BronzePlane(PropulsionType.PropellerEngine));
-        planesList.add(new BronzePlane(PropulsionType.PistonsEngine));
-        planesList.add(new BronzePlane(PropulsionType.ReactionEngine));
+        planesList.add(new GoldPlane(PropulsionType.PROPELLERENGINE));
+        planesList.add(new GoldPlane(PropulsionType.PISTONSENGINE));
+        planesList.add(new GoldPlane(PropulsionType.REACTIONENGINE));
+        planesList.add(new SilverPlane(PropulsionType.PROPELLERENGINE));
+        planesList.add(new SilverPlane(PropulsionType.PISTONSENGINE));
+        planesList.add(new SilverPlane(PropulsionType.REACTIONENGINE));
+        planesList.add(new BronzePlane(PropulsionType.PROPELLERENGINE));
+        planesList.add(new BronzePlane(PropulsionType.PISTONSENGINE));
+        planesList.add(new BronzePlane(PropulsionType.REACTIONENGINE));
         return planesList;
     }
 

@@ -4,13 +4,13 @@ import com.company.Business.AeroTaxiCompany.CompanyFlight;
 import com.company.Business.AeroTaxiCompany.Plane.*;
 import com.company.Business.BusinessValidation;
 import com.company.Business.City;
-import com.company.Business.User.Client;
 import com.company.Business.User.Flight;
 import com.company.Business.User.User;
 import com.company.Business.User.UserFlight;
 import com.company.DataAccess.Services.DataAccessService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.io.IOException;
 import java.util.*;
 
 public class BusinessService {
@@ -58,8 +58,8 @@ public class BusinessService {
     }
 
     private int typeCost(PropulsionType propulsionType){
-        int cost= ((propulsionType.equals(PropulsionType.PropellerEngine))?150 :
-                (propulsionType.equals(PropulsionType.PistonsEngine)) ? 225 : 300);
+        int cost= ((propulsionType.equals(PropulsionType.PROPELLERENGINE))?150 :
+                (propulsionType.equals(PropulsionType.PISTONSENGINE)) ? 225 : 300);
         return cost;
     }
 
@@ -92,6 +92,10 @@ public class BusinessService {
         return freePlanes;
     }
 
+    public void saveFlight(Flight flight) throws IOException {
+        dataSearch.dataSaveFlight(flight);
+    }
+
     public User searchUser(User user){
         //user = dataSearch.searchUserInData(user);
         return user;
@@ -100,10 +104,8 @@ public class BusinessService {
         int response=0;
         if(data instanceof User)
             response=saveUser((User)data);
-        if(data instanceof Client)
-            response=saveClient((Client)data);
         if(data instanceof Flight)
-            response=saveFlight((Flight)data);
+            //response=saveFlight((Flight)data);
         if(data instanceof Plane)
             response=savePlane((Plane)data);
         return response;
@@ -114,18 +116,7 @@ public class BusinessService {
         return response;
     }
 
-    private int saveClient(Client client){
-        int response=0;
 
-        return response;
-    }
-
-
-    private int saveFlight(Flight flight){
-        int response=0;
-
-        return response;
-    }
 
     private int savePlane(Plane plane){
         int response=0;

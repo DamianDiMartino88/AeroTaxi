@@ -1,5 +1,8 @@
 package com.company.Business.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private static int userCounter=0;
     private int userId;
@@ -7,9 +10,9 @@ public class User {
     private String userLastName;
     private int userDocument;
     private int userAge;
-    private Client userFlightsData;
+    private List<UserFlight> flightsList;
 
-    public User(Client client)
+    public User()
     {
         this.userCounter++;
         this.userId=userCounter;
@@ -17,7 +20,7 @@ public class User {
         this.userLastName="";
         this.userDocument=0;
         this.userAge=0;
-        this.userFlightsData=client;
+        this.flightsList=new ArrayList<>();
     }
 
     public User(int userdocument)
@@ -28,10 +31,10 @@ public class User {
         this.userLastName="";
         this.userDocument=userdocument;
         this.userAge=0;
-        this.userFlightsData=null;
+        this.flightsList=new ArrayList<>();
     }
 
-    public User(String username, String userlastname, int userdocument, int userage, Client client)
+    public User(String username, String userlastname, int userdocument, int userage)
     {
         this.userCounter++;
         this.userId=userCounter;
@@ -39,6 +42,10 @@ public class User {
         this.userLastName=userlastname;
         this.userDocument=userdocument;
         this.userAge=userage;
-        this.userFlightsData=client;
+        this.flightsList=new ArrayList<>();
+    }
+
+    public void addFlight(UserFlight userFlight){
+        this.flightsList.add(userFlight);
     }
 }

@@ -12,12 +12,12 @@ public class GoldPlane extends Plane implements ICatering {
     //se asignan los valores de capacidad de combustible, costo por kilometro, y velocidad
     //dependiendo del tipo de propulsion del avion
     public GoldPlane( PropulsionType propulsiontype){
-        super( (propulsiontype.equals(PropulsionType.PropellerEngine)?3000:(propulsiontype.equals(PropulsionType.PistonsEngine)? 10000 : 150000)),
-                (propulsiontype.equals(PropulsionType.PropellerEngine)?150:(propulsiontype.equals(PropulsionType.PistonsEngine)? 225 : 300))
+        super( (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?3000:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 10000 : 150000)),
+                (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?150:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 225 : 300))
                 , 10,
-                (propulsiontype.equals(PropulsionType.PropellerEngine)?880:(propulsiontype.equals(PropulsionType.PistonsEngine)? 855 : 2180)),
+                (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?880:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 855 : 2180)),
                 propulsiontype);
-        this.hasWifi=(propulsiontype.equals(PropulsionType.PropellerEngine)?false:(propulsiontype.equals(PropulsionType.PistonsEngine)? false : true));
+        this.hasWifi=(propulsiontype.equals(PropulsionType.PROPELLERENGINE)?false:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? false : true));
     }
 
     //metodo heredado de ICatering, devuelve " true " para los aviones tipo GOLD
