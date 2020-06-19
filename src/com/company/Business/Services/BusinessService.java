@@ -96,32 +96,12 @@ public class BusinessService {
         dataSearch.dataSaveFlight(flight);
     }
 
-    public User searchUser(User user){
-        //user = dataSearch.searchUserInData(user);
+    public User searchUser(int document){
+        User user = dataSearch.searchUserInData(document);
         return user;
     }
-    public int dataSave(Object data){
-        int response=0;
-        if(data instanceof User)
-            response=saveUser((User)data);
-        if(data instanceof Flight)
-            //response=saveFlight((Flight)data);
-        if(data instanceof Plane)
-            response=savePlane((Plane)data);
-        return response;
-    }
-    private int saveUser(User user){
-        int response=0;
-
-        return response;
-    }
 
 
 
-    private int savePlane(Plane plane){
-        int response=0;
-
-        return response;
-    }
 
 }

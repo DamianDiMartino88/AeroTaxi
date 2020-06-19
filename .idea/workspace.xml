@@ -20,22 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_11_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_11_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_11_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_11_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_11_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" afterDir="false" />
     </list>
@@ -139,10 +126,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592447055603">
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592527669235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592447055603" />
+    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592527669235" />
     <state x="533" y="256" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592429376043">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -198,9 +185,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591119694096" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592448508482">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592525018220">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592448508482" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592525018220" />
   </component>
 </project>

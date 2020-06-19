@@ -48,4 +48,60 @@ public class User {
     public void addFlight(UserFlight userFlight){
         this.flightsList.add(userFlight);
     }
+
+    public static int getUserCounter() {
+        return userCounter;
+    }
+
+    public static void setUserCounter(int userCounter) {
+        User.userCounter = userCounter;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public int getUserDocument() {
+        return userDocument;
+    }
+
+    public void setUserDocument(int userDocument) {
+        this.userDocument = userDocument;
+    }
+
+    public int getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(int userAge) {
+        this.userAge = userAge;
+    }
+
+    public List<UserFlight> getFlightsList() {
+        return flightsList;
+    }
+
+    public void setFlightsList(List<UserFlight> flightsList) {
+        this.flightsList = flightsList;
+    }
 }

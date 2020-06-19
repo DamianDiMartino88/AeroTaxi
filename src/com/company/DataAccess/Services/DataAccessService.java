@@ -29,6 +29,25 @@ public class DataAccessService {
 
     public DataAccessService(){};
     //------------------------- Change
+    //trae la lista de usuarios, compara por documento los usuarios en la lista,
+    //si encuenta coincidencia devuelve el usuariocon sus datos, sino devuelve el objeto con el documento asignado
+    //para crear el nuevousario
+    public User searchUserInData(int document){
+        List<User> userList =readUserFile();
+        User newUser = new User(document);
+        newUser=checkExistence(userList,newUser);
+        return newUser
+    }
+
+    //Compara los usuariios por documentos
+    private User checkExistence(List<User> userList, User newUser){
+        for (User savedUser : userList) {
+            if(newUser.getUserDocument()==savedUser.getUserDocument()){
+                newUser=savedUser;
+            }
+        }
+        return newUser;
+    }
 
     //Con este metodo traigo un objeto de tipo Flight, si es UserFlight, llama al metodo de escritura de usuarios
     //si es tipo CompanyFlight, llama al metodo de escritura de datos en compañia
@@ -95,7 +114,13 @@ public class DataAccessService {
         writeUserFile(user);
 
     }
+    // Aca cambie el tipo de dato q devuelve, este metodo tiene q devolver la lista de usuarios
 
+    private User readUserFile() throws JsonParseException, JsonMappingException, IOException {
+        User user = mapper.readValue(fileUser, User.class);
+        System.out.println(user.toString());
+        return user;
+    }
     //-------------------------------------- Change
 
 
@@ -103,11 +128,7 @@ public class DataAccessService {
         mapper.writerWithDefaultPrettyPrinter().writeValue(fileUser,user);
     }
 
-    private User readUserFile() throws JsonParseException, JsonMappingException, IOException {
-        User user = mapper.readValue(fileUser, User.class);
-        System.out.println(user.toString());
-        return user;
-    }
+
     private void writeListUserFile(List<User> userList ) throws JsonGenerationException, JsonMappingException, IOException {
         mapper.writerWithDefaultPrettyPrinter().writeValue(fileUser,userList);
     }
