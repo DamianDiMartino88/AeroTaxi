@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/Plane/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

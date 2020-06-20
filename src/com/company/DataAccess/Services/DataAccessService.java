@@ -24,7 +24,7 @@ public class DataAccessService {
     private File filePlane = new File("Plane.json");
     private File FileUserflight = new File("UserFlight.json"); //change dejalo pero quizas no lo usemos
     private File FileCompanyflight = new File("CompanyFlight.json"); //change dejalo pero quizas no lo usemos
-    private File FileCompany = new File("Company.json"); //change
+    private File FileCompany = new File("Company.json");
 
 
     public DataAccessService(){};
@@ -36,7 +36,7 @@ public class DataAccessService {
         List<User> userList =readUserFile();
         User newUser = new User(document);
         newUser=checkExistence(userList,newUser);
-        return newUser
+        return newUser;
     }
 
     //Compara los usuariios por documentos
@@ -79,9 +79,8 @@ public class DataAccessService {
         if(obj instanceof Plane){
             company.addPlanes((Plane)obj);
         }
-        mapper.writerWithDefaultPrettyPrinter().writeValue(FileCompany,company);
+        mapper.writeValue(FileCompany,company);
     }
-
 
     private Company readCompanyFile() throws JsonParseException, JsonMappingException, IOException {
         Company company = mapper.readValue(FileCompany, Company.class);
@@ -90,7 +89,7 @@ public class DataAccessService {
     }
 
     private void writeUserFlightFile(Flight flight) throws JsonGenerationException, JsonMappingException, IOException{
-        mapper.writerWithDefaultPrettyPrinter().writeValue(FileUserflight,flight);
+        mapper.writeValue(FileUserflight,flight);
     }
 
     private Flight readUserFlightFile() throws JsonParseException, JsonMappingException, IOException {
@@ -103,7 +102,7 @@ public class DataAccessService {
         writeCompanyFile(newUser);
 
         writeUserFile(newUser);
-    }
+    }//ojo con esto
 
     //metodo para agregar un vuelo a la lista de vuelos de un usuario
     public void addNewFlightToUser(UserFlight flight) throws IOException {
@@ -114,38 +113,28 @@ public class DataAccessService {
         writeUserFile(user);
 
     }
-    // Aca cambie el tipo de dato q devuelve, este metodo tiene q devolver la lista de usuarios
 
-    private User readUserFile() throws JsonParseException, JsonMappingException, IOException {
-        User user = mapper.readValue(fileUser, User.class);
-        System.out.println(user.toString());
-        return user;
-    }
-    //-------------------------------------- Change
-
-
-    private void writeUserFile(User user ) throws JsonGenerationException, JsonMappingException, IOException {
-        mapper.writerWithDefaultPrettyPrinter().writeValue(fileUser,user);
-    }
-
-
+   // se llama despues de  cargado un usuario en una lista se le pasa la lista y escribe en json
     private void writeListUserFile(List<User> userList ) throws JsonGenerationException, JsonMappingException, IOException {
-        mapper.writerWithDefaultPrettyPrinter().writeValue(fileUser,userList);
+        mapper.writeValue(fileUser,userList);
     }
+    //lee lista en json y la devuelve cuando la devuelve se puede buscar un usuario en esa lista QUE devuelve
     private List<User> readListUserFile() throws JsonParseException, JsonMappingException, IOException {
         List<User> users =mapper.readValue(fileUser, List.class);
+        System.out.println(users.toString());
         return users;
     }
-
-    private void writePlaneFile(Plane plane) throws JsonGenerationException, JsonMappingException, IOException{
-        mapper.writerWithDefaultPrettyPrinter().writeValue(filePlane,plane);
+    // se le pasa el Hastset de Plane y crea el archivo json de plane , escribe el hastset de plane en json
+    private void writePlaneFile(HashSet<Plane> planeHashset) throws JsonGenerationException, JsonMappingException, IOException{
+        mapper.writeValue(filePlane,planeHashset);
     }
-
-    private Plane readPlaneFile() throws JsonParseException, JsonMappingException, IOException {
-        Plane plane = mapper.readValue(filePlane, Plane.class);
-        System.out.println(plane.toString());
-        return plane;
+    // lee el filePLANE
+    private HashSet<Plane> readPlaneFile() throws JsonParseException, JsonMappingException, IOException {
+        HashSet<Plane> planeHashSet = mapper.readValue(filePlane, HashSet.class);
+        System.out.println();//hay que pasarle el tostring 
+        return planeHashSet;
     }
+    // necesitas buscar un plane?
 
 
     //en esta clase se van a incluir todos los metodos q reciban los pedidos de informacion de la capa businessService,

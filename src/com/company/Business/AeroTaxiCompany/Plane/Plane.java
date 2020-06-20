@@ -24,6 +24,9 @@ public class Plane {
         planesList.add(new BronzePlane(PropulsionType.PROPELLERENGINE));
         planesList.add(new BronzePlane(PropulsionType.PISTONSENGINE));
         planesList.add(new BronzePlane(PropulsionType.REACTIONENGINE));
+        // aca llama writePlaneFile(HashSet<Plane> planeHashset) PARA guardar en json
+        // tambien podes llamar HashSet<Plane> readPlaneFile() PARA que lea el JSON Y DEVUELVE
+        //EL HashSet del json
         return planesList;
     }
 

@@ -30,6 +30,8 @@ public class Company {
         planesList.add(new BronzePlane(PropulsionType.PROPELLERENGINE));
         planesList.add(new BronzePlane(PropulsionType.PISTONSENGINE));
         planesList.add(new BronzePlane(PropulsionType.REACTIONENGINE));
+
+
         return planesList;
     }
 
