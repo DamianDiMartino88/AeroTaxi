@@ -128,4 +128,10 @@ public class BusinessService {
       }
       return flag;
     }
+
+    public CompanyFlight searchFlight(UserFlight userFlight) throws IOException {
+        CompanyFlight searchedFlight = dataSearch.searchFlightInData(userFlight);
+        return searchedFlight;
+    }
+
 }

@@ -7,6 +7,7 @@ import com.company.Business.City;
 import com.company.Business.User.Flight;
 import com.company.Business.User.User;
 import com.company.Business.User.UserFlight;
+import com.company.DataAccess.DataAccessValidation;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -120,4 +121,24 @@ public class DataAccessService {
         System.out.println(users.toString());
         return users;
     }
-   }
+
+    public CompanyFlight searchFlightInData(UserFlight userFlight) throws IOException {
+        Company company = readCompanyFile();
+        CompanyFlight newFlight = checkFlightExistence(company.getCompanyFlightsList(),userFlight);
+        return  newFlight;
+    }
+
+    private CompanyFlight checkFlightExistence(List<CompanyFlight> flightsList, UserFlight userFlight) {
+        CompanyFlight newFlight=new CompanyFlight();
+        DataAccessValidation validations = new DataAccessValidation();
+        for (CompanyFlight flights : flightsList) {
+            if (validations.flightType(userFlight, flights.getFlightCategory())
+                    && (validations.flightRout(userFlight, flights)))
+            {
+                newFlight=flights;
+            }
+        }
+        return newFlight;
+    }
+
+}

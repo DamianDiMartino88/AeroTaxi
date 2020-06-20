@@ -10,12 +10,11 @@ public class CompanyFlight extends Flight {
     //private int companyFlightId;
     private int flightPassengers;
 
-    /*public CompanyFlight(){
+    public CompanyFlight(){
         super();
-        this.companyFlightCounter++;
-        this.companyFlightId=this.companyFlightCounter;
         this.flightPassengers=0;
-    }*/
+    }
+
 
     public CompanyFlight(String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate, int flightPassengers){
         super(flightOrigin, flightDestiny, flightCategory, flightDate);
@@ -31,4 +30,6 @@ public class CompanyFlight extends Flight {
     public void addFlightPassengers(int flightPassengers) {
         this.flightPassengers = this.flightPassengers+flightPassengers;
     }
+
+
 }

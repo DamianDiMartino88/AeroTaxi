@@ -14,12 +14,20 @@ public class Flight {
     private Plane flightCategory;
     private LocalDate flightDate;
 
+    public Flight (){
+        this.flightOrigin="";
+        this.flightDestiny="";
+        this.flightCategory=null;
+        this.flightDate=null;
+    }
+
     public Flight (String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate){
         this.flightOrigin = flightOrigin;
         this.flightDestiny = flightDestiny;
         this.flightCategory = flightCategory;
         this.flightDate = flightDate;
     }
+
 
 
     public String getFlightOrigin() {

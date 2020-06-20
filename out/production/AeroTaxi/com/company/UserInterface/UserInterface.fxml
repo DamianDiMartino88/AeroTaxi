@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
@@ -16,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.UserInterface.Services.UserInterfaceService">
    <children>
-      <AnchorPane fx:id="startPanel" prefHeight="400.0" prefWidth="463.0" style="-fx-background-color: BLACK;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="startPanel" prefHeight="400.0" prefWidth="463.0" style="-fx-background-color: BLACK;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutY="73.0" prefHeight="328.0" prefWidth="193.0" style="-fx-background-color: #95f0ed;" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="73.0">
                <children>
@@ -139,7 +138,6 @@
                   <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
                   <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
                   <JFXComboBox fx:id="menuComboBox" focusColor="BLACK" layoutX="285.0" layoutY="12.0" onAction="#onMenuComboBoxChoice" prefHeight="31.0" prefWidth="87.0" promptText="  MENU" style="-fx-background-color: white;" unFocusColor="BLACK" />
-                  <ChoiceBox fx:id="choiceMenu" layoutX="180.0" layoutY="14.0" onMouseClicked="#onMenuComboBoxChoice" prefHeight="21.0" prefWidth="87.0" />
                </children>
             </AnchorPane>
          </children>
@@ -464,7 +462,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="userAccountPanel" prefHeight="400.0" prefWidth="386.0" style="-fx-background-color: black;">
+      <AnchorPane fx:id="userAccountPanel" prefHeight="400.0" prefWidth="386.0" style="-fx-background-color: black;" visible="false">
          <children>
             <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
                <children>

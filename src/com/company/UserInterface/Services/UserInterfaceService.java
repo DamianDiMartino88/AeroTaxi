@@ -1,7 +1,9 @@
 package com.company.UserInterface.Services;
 
+import com.company.Business.AeroTaxiCompany.Company;
 import com.company.Business.AeroTaxiCompany.CompanyFlight;
 import com.company.Business.AeroTaxiCompany.Plane.*;
+import com.company.Business.City;
 import com.company.Business.Services.BusinessService;
 import com.company.Business.User.Flight;
 import com.company.Business.User.User;
@@ -29,6 +31,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class UserInterfaceService implements Initializable {
@@ -118,7 +122,13 @@ public class UserInterfaceService implements Initializable {
     private Flight flight;
 
     //compania
-    private CompanyFlight company;
+    private CompanyFlight companyFlight;
+
+    //vuelos de la compania
+
+    //Compani
+    private Company company = new Company();
+
 
     //para mostrar los datos de los ComboBox
     ObservableList<String> menuComboBoxContent = FXCollections.observableArrayList("Book a Flight", "Cancel a Flight", "My Account", "Company");
@@ -414,7 +424,7 @@ public class UserInterfaceService implements Initializable {
         }
     }
 
-    public void onIdTextField (ActionEvent event){
+    public void onIdTextField (ActionEvent event) throws IOException {
         //desactivo los campos siguiente
         nameTextField.setDisable(false);
         lastNameTextField.setDisable(false);
@@ -422,10 +432,13 @@ public class UserInterfaceService implements Initializable {
 
         //capto el valor del id
         int id = Integer.parseInt(idTextField.getText());
+        userExistence(id);
+        if (user.getUserName().equals("")){
         //tndria que tener un if pero no se como llamar userExistence: si id no existe me habilita los campos
-       // nameTextField.setDisable(true);
-       // lastNameTextField.setDisable(true);
-       // ageTextField.setDisable(true);
+        nameTextField.setDisable(true);
+        lastNameTextField.setDisable(true);
+        ageTextField.setDisable(true);
+        }
     }
 
     public void onMenuComboBoxChoice (ActionEvent event){
@@ -514,12 +527,13 @@ public class UserInterfaceService implements Initializable {
 
         //carga de la lista con vuelos disponibles segun el uFlight que ya cargue con los datos de la interfaz
         BusinessService available = new BusinessService();
-        //flightList.addAll(available.availablePlanes(getuFlight()));
-        Plane p1 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
+        //flightList.addAll( changeList(available.availablePlanes(getuFlight())));
+        flightList.addAll(company.addPlanes());
+        /*Plane p1 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
         Plane p2 = new Plane(200, 15, 10, 700, PropulsionType.PROPELLERENGINE);
         Plane p3 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
         Plane p4 = new Plane(200, 15, 10, 700, PropulsionType.REACTIONENGINE);
-       flightList.addAll(p1,p2,p3,p4);
+       flightList.addAll(p1,p2,p3,p4);*/
 
     }
 
@@ -544,16 +558,31 @@ public class UserInterfaceService implements Initializable {
         userExistence(id);
 
         User u = new User(name, lastName, id, age);
-        u.addFlight(uFlight);
+        //u.addFlight(uFlight);
         setUser(u);
 
         System.out.println(user.toString());
 
+        //
+
+
         //Para guardar en el archivo
 
-        businessService.saveFlight(user, flight);
-        businessService.saveFlight(null, flight);
-        businessService.addPassengers(uFlight, company);
+        businessService.saveFlight(user, uFlight);
+
+        //if que si el vuelo ya existe le sume los acompañantes y si no que cree un companyFlight
+
+
+
+        if( companyFlight.getFlightOrigin().equals("") && companyFlight.getFlightDestiny().equals("")){
+            companyFlight.setFlightOrigin(uFlight.getFlightOrigin());
+            companyFlight.setFlightDestiny(uFlight.getFlightDestiny());
+            companyFlight.setFlightCategory(uFlight.getFlightCategory());
+            companyFlight.setFlightDate(uFlight.getFlightDate());
+        }
+
+        businessService.addPassengers(uFlight, companyFlight);
+        businessService.saveFlight(null, companyFlight);
 
     }
 
@@ -614,12 +643,23 @@ public class UserInterfaceService implements Initializable {
 
     }
 
-
+    private ObservableList<Plane> changeList(HashSet<Plane> availablePlane){
+        ObservableList<Plane> planesList = FXCollections.observableArrayList();
+        for (Plane planes: availablePlane){
+            planesList.add(planes);
+        }
+        return planesList;
+    }
 
 
     public void userExistence(int document) throws IOException {
         User searchedUser = businessService.searchUser(document);
         setUser(searchedUser);
+    }
+
+    public CompanyFlight companyExistence (UserFlight userFlight) throws IOException{
+        CompanyFlight searchedFlight = businessService.searchFlight(userFlight);
+        return searchedFlight;
     }
 
     public User getUser() {
@@ -641,6 +681,8 @@ public class UserInterfaceService implements Initializable {
     public Flight getFlight() { return flight; }
 
     public void setFlight(Flight flight) {this.flight = flight; }
+
+
 }
 
 
