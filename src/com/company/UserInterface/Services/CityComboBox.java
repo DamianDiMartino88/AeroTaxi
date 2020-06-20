@@ -15,7 +15,7 @@ public class CityComboBox {
 
 
 
-        List<City> citysList = Arrays.asList(City.values());
+        /*List<City> citysList = Arrays.asList(City.values());
 
         public List<City> setStatesTo(String origin ) {
             List<City> CitysTo = new ArrayList<>();
@@ -25,7 +25,7 @@ public class CityComboBox {
                 }
             }
             return CitysTo;
-        }
+        }*/
 
     ObservableList<String> states = FXCollections.observableArrayList(
                 "Buenos Aires",
@@ -48,7 +48,7 @@ public class CityComboBox {
                 "Buenos Aires",
                 "Cordoba",
                 "Montevideo");
-/*
+
         public CityComboBox() {
             statesTo.add(buenosAiresTo);
             statesTo.add(cordobaTo);
@@ -57,7 +57,7 @@ public class CityComboBox {
 
         }
 
-*/
+
 
         public ObservableList<String> getStates() {
             return states;

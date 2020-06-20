@@ -4,6 +4,7 @@ import com.company.Business.AeroTaxiCompany.Plane.Plane;
 import com.company.Business.AeroTaxiCompany.Plane.PropulsionType;
 import com.company.Business.City;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -11,7 +12,14 @@ public class Flight {
     private String flightOrigin;
     private String flightDestiny;
     private Plane flightCategory;
-    private Date flightDate;
+    private LocalDate flightDate;
+
+    public Flight (String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate){
+        this.flightOrigin = flightOrigin;
+        this.flightDestiny = flightDestiny;
+        this.flightCategory = flightCategory;
+        this.flightDate = flightDate;
+    }
 
 
     public String getFlightOrigin() {
@@ -38,11 +46,21 @@ public class Flight {
         this.flightCategory = flightCategory;
     }
 
-    public Date getFlightDate() {
+    public LocalDate getFlightDate() {
         return flightDate;
     }
 
-    public void setFlightDate(Date flightDate) {
+    public void setFlightDate(LocalDate flightDate) {
         this.flightDate = flightDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightOrigin='" + flightOrigin + '\'' +
+                ", flightDestiny='" + flightDestiny + '\'' +
+                ", flightCategory=" + flightCategory +
+                ", flightDate=" + flightDate +
+                '}';
     }
 }

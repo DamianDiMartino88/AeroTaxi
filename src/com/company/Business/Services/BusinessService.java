@@ -28,6 +28,7 @@ public class BusinessService {
            return DATOS;
     }
      */
+    public BusinessService(){};
 
     //este dato puede ser guardado en Company.
     private Map<String, Integer> flightDistance = new HashMap<>();
@@ -73,12 +74,12 @@ public class BusinessService {
 
     //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
     //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
-    private ObservableList<Plane> availablePlanes(UserFlight flight){
+    public  HashSet<Plane> availablePlanes(UserFlight flight){
         List<CompanyFlight> flights = new ArrayList<>(); // llamada al metodo de DataAccess
         HashSet<Plane> planesCategory = Plane.addPlanes();
         HashSet<Plane>freePlanes = new HashSet<>();
         if(flights==null){
-           return (ObservableList<Plane>)planesCategory;
+           return planesCategory;
         }else {
             for (Plane plane :planesCategory) {
                 for (CompanyFlight confirmedFlight : flights) {
@@ -91,7 +92,7 @@ public class BusinessService {
                 }
             }
         }
-        return (ObservableList<Plane>)freePlanes;
+        return freePlanes;
     }
 
     //envio el usuario y el vuelo(puede ser UserFlight o CompanyFlight) para ser guardado

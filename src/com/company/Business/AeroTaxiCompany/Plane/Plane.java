@@ -88,4 +88,11 @@ public class Plane {
     public void setPropulsionType(PropulsionType propulsionType) {
         this.propulsionType = propulsionType;
     }
+
+    @Override
+    public String toString() {
+        return "Plane{" +
+                "propulsionType=" + propulsionType +
+                '}';
+    }
 }

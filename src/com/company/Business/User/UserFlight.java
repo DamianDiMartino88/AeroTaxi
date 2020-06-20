@@ -1,17 +1,28 @@
 package com.company.Business.User;
 
+import com.company.Business.AeroTaxiCompany.Plane.Plane;
+
+import java.time.LocalDate;
+
 public class UserFlight extends Flight {
     private static int userFlightCounter=0;
     private int userFlightId;
     private int flightCompanions;
     private double flightCost;
 
-    public UserFlight(){
+    /*public UserFlight(){
         super();
         this.userFlightCounter++;
         this.userFlightId=this.userFlightCounter;
         this.flightCompanions=0;
         this.flightCost=0;
+    }*/
+
+    public UserFlight(String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate, int flightCompanions){
+        super(flightOrigin, flightDestiny, flightCategory, flightDate);
+        //this.userFlightCounter++;
+        //this.userFlightId=this.userFlightCounter;
+        this.flightCompanions=flightCompanions;
     }
 
     public int getFlightCompanions() {
@@ -44,5 +55,17 @@ public class UserFlight extends Flight {
 
     public void setFlightCost(double flightCost) {
         this.flightCost = flightCost;
+    }
+
+    @Override
+    public String toString() {
+        return "UserFlight{" +
+                "flightOrigin='" + getFlightOrigin() + '\'' +
+                ", flightDestiny='" + getFlightDestiny()+ '\'' +
+                ", flightCategory=" + getFlightCategory() +
+                ", flightDate=" + getFlightDate() +
+                ", flightCompanions=" + flightCompanions +
+                ", flightCost=" + flightCost +
+                '}';
     }
 }
