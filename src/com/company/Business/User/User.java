@@ -1,5 +1,7 @@
 package com.company.Business.User;
 
+import com.company.Business.AeroTaxiCompany.Plane.SilverPlane;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,7 @@ public class User {
     public void addFlight(UserFlight userFlight){
         this.flightsList.add(userFlight);
     }
+
 
     public static int getUserCounter() {
         return userCounter;

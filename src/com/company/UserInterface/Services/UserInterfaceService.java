@@ -26,6 +26,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -455,8 +456,8 @@ public class UserInterfaceService implements Initializable {
         //valido si el id existe y retorno los datos del usuario
     }
 
-    public void userExistence(int document){
-        User searchedUser = businessService.searchUser(new User(document));
+    public void userExistence(int document) throws IOException {
+        User searchedUser = businessService.searchUser(document);
     }
 
     /*

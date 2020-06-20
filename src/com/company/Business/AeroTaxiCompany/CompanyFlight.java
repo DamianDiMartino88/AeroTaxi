@@ -18,7 +18,7 @@ public class CompanyFlight extends Flight {
         return flightPassengers;
     }
 
-    public void setFlightPassengers(int flightPassengers) {
-        this.flightPassengers = flightPassengers;
+    public void addFlightPassengers(int flightPassengers) {
+        this.flightPassengers = this.flightPassengers+flightPassengers;
     }
 }

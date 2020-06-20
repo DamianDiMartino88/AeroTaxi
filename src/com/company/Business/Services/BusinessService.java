@@ -9,6 +9,7 @@ import com.company.Business.User.User;
 import com.company.Business.User.UserFlight;
 import com.company.DataAccess.Services.DataAccessService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,6 +29,7 @@ public class BusinessService {
     }
      */
 
+    //este dato puede ser guardado en Company.
     private Map<String, Integer> flightDistance = new HashMap<>();
     private void setDistances(){
         this.flightDistance.put("Buenos Aires Cordoba",695);
@@ -69,14 +71,14 @@ public class BusinessService {
         return cost;
     }
 
-
-    private HashSet<Plane> availablePlanes(UserFlight flight)
-    {
+    //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
+    //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
+    private ObservableList<Plane> availablePlanes(UserFlight flight){
         List<CompanyFlight> flights = new ArrayList<>(); // llamada al metodo de DataAccess
         HashSet<Plane> planesCategory = Plane.addPlanes();
         HashSet<Plane>freePlanes = new HashSet<>();
         if(flights==null){
-           return planesCategory;
+           return (ObservableList<Plane>)planesCategory;
         }else {
             for (Plane plane :planesCategory) {
                 for (CompanyFlight confirmedFlight : flights) {
@@ -89,19 +91,40 @@ public class BusinessService {
                 }
             }
         }
-        return freePlanes;
+        return (ObservableList<Plane>)freePlanes;
     }
 
-    public void saveFlight(Flight flight) throws IOException {
-        dataSearch.dataSaveFlight(flight);
+    //envio el usuario y el vuelo(puede ser UserFlight o CompanyFlight) para ser guardado
+    //en caso de CompanyFlight el User sera "null"
+    public void saveFlight(User user, Flight flight) throws IOException {
+        dataSearch.dataSaveFlight(user, flight);
     }
 
-    public User searchUser(int document){
+    //llama de buscar usuario en Data, y devuelve un objeto con el usuario buscado si hay coincidencia
+    //si el usuario no existe crea y devuelve un objeto User con el Documento ya asignado
+    public User searchUser(int document) throws IOException {
         User user = dataSearch.searchUserInData(document);
         return user;
     }
 
+    //se agregan los acompañantes mas el user a la cantidad de pasajeros de CompanyFlight,
+    //Luego se guarda CompanyFlight en el archivo
+    public void addPassengers(UserFlight userFlight, CompanyFlight companyFlight) throws IOException {
+        companyFlight.addFlightPassengers(userFlight.getFlightCompanions()+1);
+        saveFlight(null,companyFlight);
+    }
+    //confirmar este metodo
 
+    public int tryPassword(String pass){
+        return (checkPassWord(pass)==1 ? 1 : 0);
+    }
 
-
+    public int checkPassWord(String pass){
+      int flag =0;
+      while (flag==0){
+            String Password = new Scanner(System.in).next();
+            flag = (pass.equals(Password))? 1 : 0 ;
+      }
+      return flag;
+    }
 }

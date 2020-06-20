@@ -20,7 +20,7 @@ public class BusinessValidation {
     }
 
     public boolean flightCapacity(int companions, CompanyFlight flight){
-       return ((flight.getFlightPassengers()+companions)<=flight.getFlightCategory().getPassengerCapacity())? true : false;
+       return ((flight.getFlightPassengers()+(companions+1))<=flight.getFlightCategory().getPassengerCapacity())? true : false;
     }
 
     public boolean flightType(CompanyFlight flight, Plane plane){

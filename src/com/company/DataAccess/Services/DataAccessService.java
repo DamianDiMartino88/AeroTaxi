@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 
 public class DataAccessService {
@@ -32,8 +33,8 @@ public class DataAccessService {
     //trae la lista de usuarios, compara por documento los usuarios en la lista,
     //si encuenta coincidencia devuelve el usuariocon sus datos, sino devuelve el objeto con el documento asignado
     //para crear el nuevousario
-    public User searchUserInData(int document){
-        List<User> userList =readUserFile();
+    public User searchUserInData(int document) throws IOException {
+        List<User> userList =readListUserFile();
         User newUser = new User(document);
         newUser=checkExistence(userList,newUser);
         return newUser;
@@ -51,11 +52,10 @@ public class DataAccessService {
 
     //Con este metodo traigo un objeto de tipo Flight, si es UserFlight, llama al metodo de escritura de usuarios
     //si es tipo CompanyFlight, llama al metodo de escritura de datos en compañia
-    public void dataSaveFlight(Flight flight) throws IOException {
+    public void dataSaveFlight(User user, Flight flight) throws IOException {
         if (flight instanceof UserFlight)
         {
-            writeUserFlightFile(flight);
-            addNewFlightToUser((UserFlight)flight);
+            addNewFlightToUser(user, (UserFlight)flight);
         }
         if (flight instanceof CompanyFlight)
         {
@@ -67,7 +67,7 @@ public class DataAccessService {
     //luego se ve q tipo de objeto es y se agrega a la lista correspondiente de la compañia
     private void writeCompanyFile(Object obj) throws JsonGenerationException, JsonMappingException, IOException{
         Company company = readCompanyFile();
-        if(obj instanceof Flight){
+        if(obj instanceof CompanyFlight){
             company.addCompanyFlights((CompanyFlight) obj);
         }
         if(obj instanceof User){
@@ -88,73 +88,36 @@ public class DataAccessService {
         return company;
     }
 
-    private void writeUserFlightFile(Flight flight) throws JsonGenerationException, JsonMappingException, IOException{
-        mapper.writeValue(FileUserflight,flight);
-    }
-
-    private Flight readUserFlightFile() throws JsonParseException, JsonMappingException, IOException {
-        Flight flight = mapper.readValue(FileUserflight, Flight.class);
-        System.out.println(flight.toString());
-        return flight;
-    }
     //trae al nuevo usuario, lo agrega a la lista de usuarios de la compañia, lo agrega en el archivo de usuarios
     public void saveNewUser(User newUser) throws IOException {
         writeCompanyFile(newUser);
 
-        writeUserFile(newUser);
-    }//ojo con esto
-
-    //metodo para agregar un vuelo a la lista de vuelos de un usuario
-    public void addNewFlightToUser(UserFlight flight) throws IOException {
-        User user = readUserFile();
-
-        user.addFlight(flight);
-
-        writeUserFile(user);
-
+        List<User> userList = readListUserFile();
+        userList.add(newUser);
+        writeListUserFile(userList);
     }
 
-   // se llama despues de  cargado un usuario en una lista se le pasa la lista y escribe en json
+    //metodo para agregar un vuelo a la lista de vuelos de un usuario
+    public void addNewFlightToUser(User user, UserFlight flight) throws IOException {
+        List<User> usersList = readListUserFile();
+        for (User userToAdd : usersList) {
+            if(userToAdd.getUserDocument()==user.getUserDocument())
+            {
+                userToAdd.addFlight(flight);
+            }
+        }
+        writeListUserFile(usersList);
+    }
+
+   // guarda la lista de usuarios
     private void writeListUserFile(List<User> userList ) throws JsonGenerationException, JsonMappingException, IOException {
         mapper.writeValue(fileUser,userList);
     }
+
     //lee lista en json y la devuelve cuando la devuelve se puede buscar un usuario en esa lista QUE devuelve
     private List<User> readListUserFile() throws JsonParseException, JsonMappingException, IOException {
         List<User> users =mapper.readValue(fileUser, List.class);
         System.out.println(users.toString());
         return users;
     }
-    // se le pasa el Hastset de Plane y crea el archivo json de plane , escribe el hastset de plane en json
-    private void writePlaneFile(HashSet<Plane> planeHashset) throws JsonGenerationException, JsonMappingException, IOException{
-        mapper.writeValue(filePlane,planeHashset);
-    }
-    // lee el filePLANE
-    private HashSet<Plane> readPlaneFile() throws JsonParseException, JsonMappingException, IOException {
-        HashSet<Plane> planeHashSet = mapper.readValue(filePlane, HashSet.class);
-        System.out.println();//hay que pasarle el tostring 
-        return planeHashSet;
-    }
-    // necesitas buscar un plane?
-
-
-    //en esta clase se van a incluir todos los metodos q reciban los pedidos de informacion de la capa businessService,
-    // hagan el request a la base de datos, y devuelvan la informacion a la capa solicitante
-
-    /*
-    public DEVOLUCIONDEDATO RequerimientoInformacion(requerimiento)
-    {
-           DATOS = BusquedaDeInformacionEnBaseDeDatos(requerimiento);
-           //logaritmo de procesado de informacion para devolucion a la capa de Business
-           return DATOS;
-    }
-
-
-    public DEVOLUCIONDEDATO BusquedaDeInformacionEnBaseDeDatos(requerimiento)
-    {
-           //logaritmo de busqueda de informacion para devolucion al metodo " RequerimientoInformacion"
-           return DATOS;
-    }
-     */
-
-
-}
+   }

@@ -12,7 +12,7 @@ public class Flight {
     private String flightDestiny;
     private Plane flightCategory;
     private Date flightDate;
-    private double flightCost;
+
 
     public String getFlightOrigin() {
         return flightOrigin;
