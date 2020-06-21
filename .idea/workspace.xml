@@ -21,25 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/CompanyFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/CompanyFlight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/UserFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/UserFlight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/Services/DataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/Services/DataAccessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/UserInterface.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/UserInterface.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/CompanyFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/AeroTaxiCompany/CompanyFlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/Services/BusinessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Business/User/UserFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Business/User/UserFlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/DataAccess/DataAccessValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DataAccess/DataAccessValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../vale/pruebaFxDatos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -132,12 +114,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="54" key="#com.intellij.ide.util.MemberChooser" timestamp="1592696249296">
