@@ -37,4 +37,8 @@ public class GoldPlane extends Plane implements ICatering {
                 && glp.getPropulsionType() == getPropulsionType()
                 && glp.getSpeed() == getSpeed();
     }
+
+    public String toString() {
+        return  getClass().getSimpleName() + super.toString();
+    }
 }

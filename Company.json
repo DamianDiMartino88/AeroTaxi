@@ -1,0 +1,59 @@
+{
+  "planesList" : [ {
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 10,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
+  }, {
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 10,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
+  }, {
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 20,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 10,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "fuelCapacity" : 3000,
+    "costPerKM" : 150.0,
+    "passengerCapacity" : 10,
+    "speed" : 880.0,
+    "propulsionType" : "PROPELLERENGINE"
+  }, {
+    "fuelCapacity" : 3000,
+    "costPerKM" : 150.0,
+    "passengerCapacity" : 20,
+    "speed" : 880.0,
+    "propulsionType" : "PROPELLERENGINE"
+  }, {
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 10,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "fuelCapacity" : 3000,
+    "costPerKM" : 150.0,
+    "passengerCapacity" : 10,
+    "speed" : 880.0,
+    "propulsionType" : "PROPELLERENGINE"
+  }, {
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 20,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
+  } ],
+  "citysList" : [ "Buenos_Aires", "Cordoba", "Santiago_de_Chile", "Montevideo" ],
+  "companyFlightsList" : [ ]
+}

@@ -10,6 +10,7 @@ import com.company.Business.User.UserFlight;
 import com.company.DataAccess.DataAccessValidation;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -46,7 +47,8 @@ public class DataAccessService <T> {
 
     //lee una lista de cualquier tipo en el json que le pases por parametro
     private List<T> readListFileJSON(String json) throws JsonParseException, JsonMappingException, IOException {
-        List<T> type = mapper.readValue(new File(json), List.class);
+        //List<T> type = mapper.readValue(new File(json), List.class);
+        List<T> type = mapper.convertValue(new File(json),  new TypeReference<List<T>>(){});
         System.out.println(type.toString());
         return type;
     }
@@ -70,7 +72,7 @@ public class DataAccessService <T> {
 
     //Compara los usuariios por documentos
     private User checkExistence(List<User> userList, User newUser) {
-        for (User savedUser : userList) {
+        for (User savedUser : (List<User>)userList) {
             if (newUser.getUserDocument() == savedUser.getUserDocument()) {
                 newUser = savedUser;
             }
@@ -110,6 +112,14 @@ public class DataAccessService <T> {
             company.addPlanes((Plane) obj);
         }
         mapper.writeValue(new File(this.getNameFileCompany()), company);
+    }
+
+    public void writeComp (Company company) throws IOException {
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.getNameFileCompany()), company);
+    }
+
+    public void writeUser (List<User> userList) throws  IOException {
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.getNameFileUser()), userList);
     }
 
     /* private void writeCompanyFile(Object obj) throws JsonGenerationException, JsonMappingException, IOException{

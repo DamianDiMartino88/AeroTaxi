@@ -27,4 +27,8 @@ public class BronzePlane extends Plane {
                 && bzp.getPropulsionType() == getPropulsionType()
                 && bzp.getSpeed() == getSpeed();
     }
+
+    public String toString() {
+        return  getClass().getSimpleName() + super.toString();
+    }
 }

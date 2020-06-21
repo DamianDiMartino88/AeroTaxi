@@ -1,0 +1,19 @@
+[ {
+  "userName" : "gurrieri",
+  "userLastName" : "valeria",
+  "userDocument" : 37010807,
+  "userAge" : 28,
+  "flightsList" : [ ]
+}, {
+  "userName" : "eldam",
+  "userLastName" : "diamrti",
+  "userDocument" : 33480796,
+  "userAge" : 32,
+  "flightsList" : [ ]
+}, {
+  "userName" : "gise",
+  "userLastName" : "cruz",
+  "userDocument" : 35012487,
+  "userAge" : 30,
+  "flightsList" : [ ]
+} ]

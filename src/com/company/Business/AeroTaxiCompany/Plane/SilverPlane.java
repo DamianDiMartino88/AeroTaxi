@@ -34,4 +34,8 @@ public class SilverPlane extends Plane implements ICatering {
     public boolean availableServices(){
         return this.hasCatering;
     }
+
+    public String toString() {
+        return  getClass().getSimpleName() + super.toString();
+    }
 }

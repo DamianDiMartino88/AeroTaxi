@@ -75,11 +75,11 @@ public class BusinessService {
 
     //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
     //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
-    public  HashSet<Plane> availablePlanes(UserFlight flight){
-        List<CompanyFlight> flights = new ArrayList<>(); // llamada al metodo de DataAccess
-        HashSet<Plane> planesCategory = Plane.addPlanes();
+    public  HashSet<Plane> availablePlanes(UserFlight flight) throws IOException {
+        List<CompanyFlight> flights = flightOfTheDay(flight); // llamada al metodo de DataAccess
+        HashSet<Plane> planesCategory = getPlanesList();
         HashSet<Plane>freePlanes = new HashSet<>();
-        if(flights==null){
+        if(flights.size()==0){
            return planesCategory;
         }else {
             for (Plane plane :planesCategory) {
@@ -94,6 +94,17 @@ public class BusinessService {
             }
         }
         return freePlanes;
+    }
+
+    private List<CompanyFlight> flightOfTheDay (UserFlight userFlight) throws IOException {
+        List<CompanyFlight> companyFlightList = new ArrayList<>();
+        List<CompanyFlight> companyFlightListReturn = new ArrayList<>();
+        companyFlightList = getCompanyFlightsList();
+        for (CompanyFlight company: companyFlightList) {
+            if (userFlight.getFlightDate().equals(company.getFlightDate())){
+                companyFlightListReturn.add(company);
+            }
+        }return companyFlightListReturn;
     }
 
     //envio el usuario y el vuelo(puede ser UserFlight o CompanyFlight) para ser guardado

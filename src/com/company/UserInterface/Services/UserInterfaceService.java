@@ -48,7 +48,7 @@ public class UserInterfaceService implements Initializable {
     }
      */
 
-        private BusinessService businessService;
+    private BusinessService businessService = new BusinessService();
     //botones de imagenes
     @FXML private ImageView backButtonBook;
     @FXML private ImageView backButtonRegister;
@@ -85,8 +85,8 @@ public class UserInterfaceService implements Initializable {
 
     //bookAflightPanel
     //comboBox
-    @FXML private JFXComboBox<String> fromComboBox;
-    @FXML private JFXComboBox<String> toComboBox;
+    @FXML private JFXComboBox<City> fromComboBox;
+    @FXML private JFXComboBox<City> toComboBox;
     private CityComboBox statesManager;
     @FXML private JFXComboBox<Integer> passengersComboBox;
     //datePicker
@@ -151,7 +151,11 @@ public class UserInterfaceService implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        fromComboBox.setItems(statesManager.getStates());
+        try {
+            fromComboBox.setItems(changeCitysList(businessService.getCitysList()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         passengersComboBox.setItems(passengersComboBoxContent);
         flightDateDatePicker.setValue(LocalDate.now());
         flightDateDatePicker.setDayCellFactory(dayCellFactory);
@@ -417,17 +421,14 @@ public class UserInterfaceService implements Initializable {
         }
     };
 
-    public void onFromComboBoxChoice (ActionEvent event){
+    public void onFromComboBoxChoice (ActionEvent event) throws IOException {
 
         toComboBox.setDisable(false);
         //int i=this.fromComboBox.getSelectionModel().getSelectedIndex();
         //this.toComboBox.setItems(this.statesManager.getStatesTo(i));
 
-        for (int i=0; i < statesManager.getSizeStates(); i++){
-            if (fromComboBox.getValue().equals(statesManager.getStates(i))){
-                toComboBox.setItems(statesManager.getStatesTo(i));
-            }
-        }
+        toComboBox.setItems(changeCitysList(statesManager.setStatesTo(fromComboBox.getValue().getDenomination())));
+
     }
 
     public void onIdTextField (ActionEvent event) throws IOException {
@@ -440,10 +441,10 @@ public class UserInterfaceService implements Initializable {
         int id = Integer.parseInt(idTextField.getText());
         userExistence(id);
         if (user.getUserName().equals("")){
-        //tndria que tener un if pero no se como llamar userExistence: si id no existe me habilita los campos
-        nameTextField.setDisable(true);
-        lastNameTextField.setDisable(true);
-        ageTextField.setDisable(true);
+            //tndria que tener un if pero no se como llamar userExistence: si id no existe me habilita los campos
+            nameTextField.setDisable(true);
+            lastNameTextField.setDisable(true);
+            ageTextField.setDisable(true);
         }
     }
 
@@ -490,8 +491,8 @@ public class UserInterfaceService implements Initializable {
 
         //guardo los valores del vuelo
         LocalDate flightDate = flightDateDatePicker.getValue();
-        String from = fromComboBox.getValue();
-        String to = toComboBox.getValue();
+        String from = fromComboBox.getValue().getDenomination();
+        String to = toComboBox.getValue().getDenomination();
         int passengers = passengersComboBox.getValue();
         Plane category = null;
 
@@ -520,7 +521,7 @@ public class UserInterfaceService implements Initializable {
 
         System.out.println(uFlight.toString());
 
-       // User u = new User(getUser().getUserName(), getUser().getUserLastName(), getUser().getUserDocument(), getUser().getUserAge());
+        // User u = new User(getUser().getUserName(), getUser().getUserLastName(), getUser().getUserDocument(), getUser().getUserAge());
         //getselection me devueleve tipo plane porque son los aviones que hay disponibles para tal fecha pero addFlight me pide un userFlight que ya lo tengo guardado en mi uFlight
 
         //setUser(u);
@@ -533,13 +534,8 @@ public class UserInterfaceService implements Initializable {
 
         //carga de la lista con vuelos disponibles segun el uFlight que ya cargue con los datos de la interfaz
         BusinessService available = new BusinessService();
-        //flightList.addAll( changeList(available.availablePlanes(getuFlight())));
+        flightList.addAll( changePlanesList(available.availablePlanes(getuFlight())));
         //flightList.addAll(businessService.getPlanesList());
-        /*Plane p1 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
-        Plane p2 = new Plane(200, 15, 10, 700, PropulsionType.PROPELLERENGINE);
-        Plane p3 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
-        Plane p4 = new Plane(200, 15, 10, 700, PropulsionType.REACTIONENGINE);
-       flightList.addAll(p1,p2,p3,p4);*/
 
     }
 
@@ -657,7 +653,7 @@ public class UserInterfaceService implements Initializable {
         return planesList;
     }
 
-    private ObservableList<City> changeCitysList(ArrayList<City> citysList){
+    private ObservableList<City> changeCitysList(List<City> citysList){
         ObservableList<City> newCitysList = FXCollections.observableArrayList();
         for (City citys: citysList){
             newCitysList.add(citys);
@@ -698,5 +694,4 @@ public class UserInterfaceService implements Initializable {
 
 
 }
-
 
