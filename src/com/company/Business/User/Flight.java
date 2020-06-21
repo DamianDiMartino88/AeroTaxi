@@ -9,12 +9,14 @@ import java.util.Date;
 import java.util.HashSet;
 
 public class Flight {
+    private int flightState;
     private String flightOrigin;
     private String flightDestiny;
     private Plane flightCategory;
     private LocalDate flightDate;
 
     public Flight (){
+        this.flightState=0;
         this.flightOrigin="";
         this.flightDestiny="";
         this.flightCategory=null;
@@ -22,13 +24,12 @@ public class Flight {
     }
 
     public Flight (String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate){
+        this.flightState=0;
         this.flightOrigin = flightOrigin;
         this.flightDestiny = flightDestiny;
         this.flightCategory = flightCategory;
         this.flightDate = flightDate;
     }
-
-
 
     public String getFlightOrigin() {
         return flightOrigin;

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private static int userCounter=0;
-    private int userId;
     private String userName;
     private String userLastName;
     private int userDocument;
@@ -16,8 +14,6 @@ public class User {
 
     public User()
     {
-        this.userCounter++;
-        this.userId=userCounter;
         this.userName="";
         this.userLastName="";
         this.userDocument=0;
@@ -27,8 +23,6 @@ public class User {
 
     public User(int userdocument)
     {
-        this.userCounter++;
-        this.userId=userCounter;
         this.userName="";
         this.userLastName="";
         this.userDocument=userdocument;
@@ -38,8 +32,6 @@ public class User {
 
     public User(String username, String userlastname, int userdocument, int userage)
     {
-        this.userCounter++;
-        this.userId=userCounter;
         this.userName=username;
         this.userLastName=userlastname;
         this.userDocument=userdocument;
@@ -49,23 +41,6 @@ public class User {
 
     public void addFlight(UserFlight userFlight){
         this.flightsList.add(userFlight);
-    }
-
-
-    public static int getUserCounter() {
-        return userCounter;
-    }
-
-    public static void setUserCounter(int userCounter) {
-        User.userCounter = userCounter;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getUserName() {

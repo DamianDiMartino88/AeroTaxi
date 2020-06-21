@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -145,7 +146,11 @@ public class UserInterfaceService implements Initializable {
         menuComboBox.setItems(menuComboBoxContent);
 
         //buscar vuelo
-        statesManager = new CityComboBox();
+        try {
+            statesManager = new CityComboBox();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         fromComboBox.setItems(statesManager.getStates());
         passengersComboBox.setItems(passengersComboBoxContent);
         flightDateDatePicker.setValue(LocalDate.now());
@@ -154,7 +159,11 @@ public class UserInterfaceService implements Initializable {
         //lista de vuelos
 
         //lista de vuelos a elegir
-        loadFlightListContent(flightListViewContent);
+        try {
+            loadFlightListContent(flightListViewContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         flightListListView.setItems(flightListViewContent);
 
         //registro
@@ -184,9 +193,6 @@ public class UserInterfaceService implements Initializable {
             e.printStackTrace();
         }
         accountFlightListView.setItems(accountFlightListViewContent);
-
-
-
     }
 
 
@@ -523,12 +529,12 @@ public class UserInterfaceService implements Initializable {
 
     }
 
-    public void loadFlightListContent (ObservableList<Plane> flightList){
+    public void loadFlightListContent (ObservableList<Plane> flightList) throws IOException {
 
         //carga de la lista con vuelos disponibles segun el uFlight que ya cargue con los datos de la interfaz
         BusinessService available = new BusinessService();
         //flightList.addAll( changeList(available.availablePlanes(getuFlight())));
-        flightList.addAll(company.addPlanes());
+        //flightList.addAll(businessService.getPlanesList());
         /*Plane p1 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
         Plane p2 = new Plane(200, 15, 10, 700, PropulsionType.PROPELLERENGINE);
         Plane p3 = new Plane(200, 15, 10, 700, PropulsionType.PISTONSENGINE);
@@ -643,12 +649,20 @@ public class UserInterfaceService implements Initializable {
 
     }
 
-    private ObservableList<Plane> changeList(HashSet<Plane> availablePlane){
+    private ObservableList<Plane> changePlanesList(HashSet<Plane> availablePlane){
         ObservableList<Plane> planesList = FXCollections.observableArrayList();
         for (Plane planes: availablePlane){
             planesList.add(planes);
         }
         return planesList;
+    }
+
+    private ObservableList<City> changeCitysList(ArrayList<City> citysList){
+        ObservableList<City> newCitysList = FXCollections.observableArrayList();
+        for (City citys: citysList){
+            newCitysList.add(citys);
+        }
+        return newCitysList;
     }
 
 

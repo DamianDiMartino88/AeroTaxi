@@ -1,5 +1,6 @@
 package com.company.Business.Services;
 
+import com.company.Business.AeroTaxiCompany.Company;
 import com.company.Business.AeroTaxiCompany.CompanyFlight;
 import com.company.Business.AeroTaxiCompany.Plane.*;
 import com.company.Business.BusinessValidation;
@@ -101,6 +102,30 @@ public class BusinessService {
         dataSearch.dataSaveFlight(user, flight);
     }
 
+    //Devuelvo la lista de Ciudades de Company
+    public List<City> getCitysList() throws IOException {
+        Company company = getCompanyInfo();
+        return company.getCitysList();
+    }
+
+    //Devuelvo la lista de Vuelos de Company
+    public List<CompanyFlight> getCompanyFlightsList() throws IOException {
+        Company company = getCompanyInfo();
+        return company.getCompanyFlightsList();
+    }
+
+    //Devuelvo la lista de aviones de Company
+    public HashSet<Plane> getPlanesList() throws IOException {
+        Company company = getCompanyInfo();
+        return company.getPlanesList();
+    }
+
+    //Recupero La informacion de Company del archivo
+    private Company getCompanyInfo() throws IOException {
+       Company company = dataSearch.getCompany();
+       return company;
+    }
+
     //llama de buscar usuario en Data, y devuelve un objeto con el usuario buscado si hay coincidencia
     //si el usuario no existe crea y devuelve un objeto User con el Documento ya asignado
     public User searchUser(int document) throws IOException {
@@ -133,5 +158,4 @@ public class BusinessService {
         CompanyFlight searchedFlight = dataSearch.searchFlightInData(userFlight);
         return searchedFlight;
     }
-
 }

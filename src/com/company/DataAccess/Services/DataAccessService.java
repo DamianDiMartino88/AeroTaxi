@@ -23,25 +23,20 @@ public class DataAccessService <T> {
 
     private static ObjectMapper mapper = new ObjectMapper();
     private String fileUser;
-    private String filePlane;
-    private File FileCompany = new File("Company.json");
-
-    private File FileUserflight = new File("UserFlight.json"); //change dejalo pero quizas no lo usemos
-    private File FileCompanyflight = new File("CompanyFlight.json"); //change dejalo pero quizas no lo usemos
+    private String fileCompany;
+    //private File FileCompany = new File("Company.json");
 
     //constructor
     public DataAccessService() {
     }
 
-    ;
-
     // getnamefile
-    public String getNameFileUser() {
+    private String getNameFileUser() {
         return "User.json";
     }
 
-    public String getNameFilePlane() {
-        return "Plane.json";
+    private String getNameFileCompany() {
+        return "Company.json";
     }
 
     // guarda lista de cualquier tipo en el json pasado por parametro
@@ -56,16 +51,8 @@ public class DataAccessService <T> {
         return type;
     }
 
-    //lee una hashSet de cualquier tipo de un json pasado por parametro
-    private HashSet<T> readHasSet(String json) throws JsonParseException, JsonMappingException, IOException {
-        HashSet<T> type = mapper.readValue(new File(json), HashSet.class);
-        System.out.println(type.toString());
-        return type;
-    }
-
-    //escribe un hashset en un json de cualquier tipo
-    private void writeHashSet(HashSet<T> type, String json) throws JsonGenerationException, JsonMappingException, IOException {
-        mapper.writeValue(new File(json), type);
+    public Company getCompany() throws IOException {
+        return readCompanyFile();
     }
     //------------------------- Change
     //trae la lista de usuarios, compara por documento los usuarios en la lista,
@@ -73,9 +60,7 @@ public class DataAccessService <T> {
     //para crear el nuevousario
 
     //estos dos metodos ya  los adapte a la clase dataAccessService generica
-
     public User searchUserInData(int document) throws IOException {
-
         DataAccessService<User> userDataAccessService = new DataAccessService<>();
         List<User> userList = userDataAccessService.readListFileJSON(getNameFileUser());
         User newUser = new User(document);
@@ -93,24 +78,21 @@ public class DataAccessService <T> {
         return newUser;
     }
 
-    // esto es lo que habia antes::
-
-   /* public User searchUserInData(int document) throws IOException {
-        List<User> userList =readListUserFile();
-        User newUser = new User(document);
-        newUser=checkExistence(userList,newUser);
-        return newUser;
+   //Con este metodo traigo un objeto de tipo Flight, si es UserFlight, llama al metodo de escritura de usuarios
+   //si es tipo CompanyFlight, llama al metodo de escritura de datos en compañia
+    public void dataSaveFlight(User user, T flight) throws IOException {
+        SaveFlight(user,flight);
     }
-
-    //Compara los usuariios por documentos
-    private User checkExistence(List<User> userList, User newUser){
-        for (User savedUser : userList) {
-            if(newUser.getUserDocument()==savedUser.getUserDocument()){
-                newUser=savedUser;
-            }
-        }
-        return newUser;
-    }*/
+   private void SaveFlight(User user, T flight) throws IOException {
+       if (flight instanceof UserFlight)
+       {
+           addNewFlightToUser(user, (UserFlight)flight);
+       }
+       if (flight instanceof CompanyFlight)
+       {
+           writeCompanyFile(flight);
+       }
+   }
 
     //metodo de datos de compañia, recibe un tipo OBJECT se busca en la base de datos la compañia
     //luego se ve q tipo de objeto es y se agrega a la lista correspondiente de la compañia
@@ -121,16 +103,13 @@ public class DataAccessService <T> {
         if (obj instanceof Flight) {
             company.addCompanyFlights((CompanyFlight) obj);
         }
-        if (obj instanceof User) {
-            company.addUsers((User) obj);
-        }
         if (obj instanceof City) {
             company.addCitys((City) obj);
         }
         if (obj instanceof Plane) {
             company.addPlanes((Plane) obj);
         }
-        mapper.writeValue(FileCompany, company);
+        mapper.writeValue(new File(this.getNameFileCompany()), company);
     }
 
     /* private void writeCompanyFile(Object obj) throws JsonGenerationException, JsonMappingException, IOException{
@@ -151,18 +130,18 @@ public class DataAccessService <T> {
     }*/
 
     private Company readCompanyFile() throws JsonParseException, JsonMappingException, IOException {
-        Company company = mapper.readValue(FileCompany, Company.class);
+        Company company = mapper.readValue(new File(this.getNameFileCompany()), Company.class);
         System.out.println(company.toString());
         return company;
     }
 
     //trae al nuevo usuario, lo agrega a la lista de usuarios de la compañia, lo agrega en el archivo de usuarios
     // adaptada a la clase
-    public void saveNewUser(User newUser) throws IOException {
+    public void saveNewUser(T newUser) throws IOException {
         writeCompanyFile(newUser);
         DataAccessService<User> userDataAccessService = new DataAccessService<User>();
         List<User> userList = userDataAccessService.readListFileJSON(this.getNameFileUser());
-        userList.add(newUser);
+        userList.add((User)newUser);
         userDataAccessService.writeListJSON(userList, this.getNameFileUser());
     }
 

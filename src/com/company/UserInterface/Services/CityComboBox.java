@@ -1,8 +1,11 @@
 package com.company.UserInterface.Services;
 
 import com.company.Business.City;
+import com.company.Business.Services.BusinessService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,13 +14,14 @@ import java.util.List;
 public class CityComboBox {
 
         ArrayList<ObservableList<String>> statesTo = new ArrayList<>();
+        BusinessService businessService = new BusinessService();
 
 
 
 
-        /*List<City> citysList = Arrays.asList(City.values());
 
-        public List<City> setStatesTo(String origin ) {
+        public List<City> setStatesTo(String origin ) throws IOException {
+            List<City> citysList = businessService.getCitysList();
             List<City> CitysTo = new ArrayList<>();
             for (City city: citysList) {
                 if(!origin.equals(city.getDenomination())){
@@ -25,7 +29,7 @@ public class CityComboBox {
                 }
             }
             return CitysTo;
-        }*/
+        }
 
     ObservableList<String> states = FXCollections.observableArrayList(
                 "Buenos Aires",
@@ -49,7 +53,7 @@ public class CityComboBox {
                 "Cordoba",
                 "Montevideo");
 
-        public CityComboBox() {
+        public CityComboBox() throws IOException {
             statesTo.add(buenosAiresTo);
             statesTo.add(cordobaTo);
             statesTo.add(montevideoTo);
