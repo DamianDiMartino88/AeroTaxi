@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 public class BusinessService {
@@ -76,7 +77,7 @@ public class BusinessService {
     //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
     //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
     public  HashSet<Plane> availablePlanes(UserFlight flight) throws IOException {
-        List<CompanyFlight> flights = flightOfTheDay(flight); // llamada al metodo de DataAccess
+        List<CompanyFlight> flights = flightOfTheDay(flight.getFlightDate()); // llamada al metodo de DataAccess
         HashSet<Plane> planesCategory = getPlanesList();
         HashSet<Plane>freePlanes = new HashSet<>();
         if(flights.size()==0){
@@ -96,12 +97,12 @@ public class BusinessService {
         return freePlanes;
     }
 
-    private List<CompanyFlight> flightOfTheDay (UserFlight userFlight) throws IOException {
+    private List<CompanyFlight> flightOfTheDay (LocalDate date) throws IOException {
         List<CompanyFlight> companyFlightList = new ArrayList<>();
         List<CompanyFlight> companyFlightListReturn = new ArrayList<>();
         companyFlightList = getCompanyFlightsList();
         for (CompanyFlight company: companyFlightList) {
-            if (userFlight.getFlightDate().equals(company.getFlightDate())){
+            if (date.isEqual(company.getFlightDate())){
                 companyFlightListReturn.add(company);
             }
         }return companyFlightListReturn;
@@ -137,6 +138,14 @@ public class BusinessService {
        return company;
     }
 
+    public void saveNewUser(User user) throws IOException {
+        dataSearch.saveNewUser(user);
+    }
+
+    public void cancelFlight(User user, UserFlight userFlight) throws IOException {
+        dataSearch.cancelFlight(user,userFlight);
+    }
+
     //llama de buscar usuario en Data, y devuelve un objeto con el usuario buscado si hay coincidencia
     //si el usuario no existe crea y devuelve un objeto User con el Documento ya asignado
     public User searchUser(int document) throws IOException {
@@ -152,21 +161,38 @@ public class BusinessService {
     }
     //confirmar este metodo
 
-    public int tryPassword(String pass){
-        return (checkPassWord(pass)==1 ? 1 : 0);
+    public boolean tryPassword(String pass){
+        return (checkPassWord(pass));
     }
 
-    public int checkPassWord(String pass){
-      int flag =0;
-      while (flag==0){
-            String Password = new Scanner(System.in).next();
-            flag = (pass.equals(Password))? 1 : 0 ;
-      }
-      return flag;
+    private boolean checkPassWord(String pass){
+      return (pass.equals("LaContraseña.123"));
     }
 
     public CompanyFlight searchFlight(UserFlight userFlight) throws IOException {
         CompanyFlight searchedFlight = dataSearch.searchFlightInData(userFlight);
         return searchedFlight;
     }
+
+    //pide a la clase DataAccess la lista de usuarios
+    public List<User> getUsersList() throws IOException {
+        List<User> userList = dataSearch.getUsersList();
+        return userList;
+    }
+
+
+    //recibo un usuario, recorre su lista de vuelos, y devuelve el valor total gastado en vuelos
+    public double totalFlightsCost(User user){
+        double totalCost=0;
+        for (UserFlight flight : user.getFlightsList())
+        {
+            totalCost=totalCost+flight.getFlightCost();
+        }
+        return totalCost;
+    }
+
+
+
+
+
 }

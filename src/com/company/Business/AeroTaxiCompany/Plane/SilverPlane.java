@@ -35,7 +35,10 @@ public class SilverPlane extends Plane implements ICatering {
         return this.hasCatering;
     }
 
+    @Override
     public String toString() {
-        return  getClass().getSimpleName() + super.toString();
+        return  "Silver Plane, Propulsion Type: "+getPropulsionType().getDenomination()+
+                " Capacity: "+getPassengerCapacity()+" Passengers, Fuel Capacity: "+getFuelCapacity()+
+                " Speed: "+getSpeed()+ ", Cost Per KM: "+getCostPerKM()+",Catering: "+hasCatering;
     }
 }

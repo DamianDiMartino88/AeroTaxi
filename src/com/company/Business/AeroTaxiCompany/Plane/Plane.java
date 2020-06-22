@@ -10,26 +10,6 @@ public class Plane {
     private int passengerCapacity;
     private double speed;
     private PropulsionType propulsionType;
-    List<Plane> planesList;
-
-    public static HashSet<Plane>  addPlanes()
-    {
-        HashSet<Plane> planesList = new HashSet<>();
-        planesList.add(new GoldPlane(PropulsionType.PROPELLERENGINE));
-        planesList.add(new GoldPlane(PropulsionType.PISTONSENGINE));
-        planesList.add(new GoldPlane(PropulsionType.REACTIONENGINE));
-        planesList.add(new SilverPlane(PropulsionType.PROPELLERENGINE));
-        planesList.add(new SilverPlane(PropulsionType.PISTONSENGINE));
-        planesList.add(new SilverPlane(PropulsionType.REACTIONENGINE));
-        planesList.add(new BronzePlane(PropulsionType.PROPELLERENGINE));
-        planesList.add(new BronzePlane(PropulsionType.PISTONSENGINE));
-        planesList.add(new BronzePlane(PropulsionType.REACTIONENGINE));
-        // aca llama writePlaneFile(HashSet<Plane> planeHashset) PARA guardar en json
-        // tambien podes llamar HashSet<Plane> readPlaneFile() PARA que lea el JSON Y DEVUELVE
-        //EL HashSet del json
-        return planesList;
-    }
-
 
     public Plane(){
         this.fuelCapacity=0;

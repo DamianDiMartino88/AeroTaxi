@@ -85,12 +85,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", userLastName='" + userLastName + '\'' +
-                ", userDocument=" + userDocument +
-                ", userAge=" + userAge +
-                ", flightsList=" + flightsList +
-                '}';
+        return "Name:'" + userName + '\'' +
+                ", LastName: '" + userLastName + '\'' +
+                ", Document: " + userDocument +
+                ", Age: " + userAge +
+                ", List of Flights: " + flightsList;
     }
 }

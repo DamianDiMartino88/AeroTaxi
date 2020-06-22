@@ -15,16 +15,21 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
+import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
+import java.net.UnknownServiceException;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DataAccessService <T> {
 
     private static ObjectMapper mapper = new ObjectMapper();
     private String fileUser;
     private String fileCompany;
+    DataAccessValidation validations = new DataAccessValidation();
     //private File FileCompany = new File("Company.json");
 
     //constructor
@@ -41,16 +46,19 @@ public class DataAccessService <T> {
     }
 
     // guarda lista de cualquier tipo en el json pasado por parametro
-    private void writeListJSON(List<T> type, String json) throws JsonGenerationException, JsonMappingException, IOException {
+    private void writeListJSON(List<User> type, String json) throws JsonGenerationException, JsonMappingException, IOException {
         mapper.writeValue(new File(json), type);
     }
 
     //lee una lista de cualquier tipo en el json que le pases por parametro
-    private List<T> readListFileJSON(String json) throws JsonParseException, JsonMappingException, IOException {
+    private List<User> readListFileJSON(String json) throws JsonParseException, JsonMappingException, IOException {
         //List<T> type = mapper.readValue(new File(json), List.class);
-        List<T> type = mapper.convertValue(new File(json),  new TypeReference<List<T>>(){});
-        System.out.println(type.toString());
+        List<User> type =mapper.readValue(new File(json), new TypeReference<List<User>>(){});
         return type;
+    }
+
+    public List<User> getUsersList() throws IOException {
+        return readListFileJSON(this.getNameFileUser());
     }
 
     public Company getCompany() throws IOException {
@@ -80,6 +88,12 @@ public class DataAccessService <T> {
         return newUser;
     }
 
+    public void saveNewUser(User user) throws IOException {
+        List<User> userList = readListFileJSON(this.getNameFileUser());
+        userList.add(user);
+        writeListJSON(userList,this.getNameFileUser());
+    }
+
    //Con este metodo traigo un objeto de tipo Flight, si es UserFlight, llama al metodo de escritura de usuarios
    //si es tipo CompanyFlight, llama al metodo de escritura de datos en compañia
     public void dataSaveFlight(User user, T flight) throws IOException {
@@ -95,6 +109,25 @@ public class DataAccessService <T> {
            writeCompanyFile(flight);
        }
    }
+
+    public void cancelFlight(User user, UserFlight userFlightToCancel) throws IOException {
+        List<User> userList = readListFileJSON(this.getNameFileUser());
+        for (User users: userList) {
+            if(user.getUserDocument()==users.getUserDocument()){
+                changeState(user, userFlightToCancel);
+            }
+        }
+        writeListJSON(userList,this.getNameFileUser());
+    }
+
+    private void changeState(User user, UserFlight userFlightToCancel){
+        for (UserFlight userFlight: user.getFlightsList()) {
+            if(validations.flightRoutToCancel(userFlight,userFlightToCancel)&&
+                    validations.flightDateToCancel(userFlight,userFlightToCancel)){
+                userFlight.cancelFlight();
+            }
+        }
+    }
 
     //metodo de datos de compañia, recibe un tipo OBJECT se busca en la base de datos la compañia
     //luego se ve q tipo de objeto es y se agrega a la lista correspondiente de la compañia
@@ -167,6 +200,7 @@ public class DataAccessService <T> {
     //metodo para agregar un vuelo a la lista de vuelos de un usuario
     //adaptada a la clase
      public void addNewFlightToUser(User user, UserFlight flight) throws IOException {
+         flight.confirmFlight();
          DataAccessService<User> userDataAccessService = new DataAccessService<User>();
         List<User> usersList = userDataAccessService.readListFileJSON(this.getNameFileUser());
         for (User userToAdd : usersList) {
@@ -196,7 +230,7 @@ public class DataAccessService <T> {
 
     private CompanyFlight checkFlightExistence(List<CompanyFlight> flightsList, UserFlight userFlight) {
         CompanyFlight newFlight=new CompanyFlight();
-        DataAccessValidation validations = new DataAccessValidation();
+
         for (CompanyFlight flights : flightsList) {
             if (validations.flightType(userFlight, flights.getFlightCategory())
                     && (validations.flightRout(userFlight, flights)))

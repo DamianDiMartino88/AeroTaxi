@@ -38,7 +38,10 @@ public class GoldPlane extends Plane implements ICatering {
                 && glp.getSpeed() == getSpeed();
     }
 
+    @Override
     public String toString() {
-        return  getClass().getSimpleName() + super.toString();
+        return  "Gold Plane, Propulsion Type: "+getPropulsionType().getDenomination()+
+                ", Capacity: "+getPassengerCapacity()+" Passengers, Fuel Capacity: "+getFuelCapacity()+
+                ", Speed: "+getSpeed()+ ", Cost Per KM: "+getCostPerKM()+", Catering: "+hasCatering+", WIFI: "+hasWifi;
     }
 }

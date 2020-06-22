@@ -31,5 +31,12 @@ public class CompanyFlight extends Flight {
         this.flightPassengers = this.flightPassengers+flightPassengers;
     }
 
-
+    @Override
+    public String toString() {
+        return "Origin: '" + getFlightOrigin() + '\'' +
+                ", Destiny: '" + getFlightDestiny()+ '\'' +
+                ", Category: " + getFlightCategory() +
+                ", Date: " + getFlightDate() +
+                ", Passengers: " + flightPassengers;
+    }
 }

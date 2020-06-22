@@ -28,7 +28,10 @@ public class BronzePlane extends Plane {
                 && bzp.getSpeed() == getSpeed();
     }
 
+    @Override
     public String toString() {
-        return  getClass().getSimpleName() + super.toString();
+        return  "Bronze Plane, Propulsion Type: "+getPropulsionType().getDenomination()+
+                " Capacity: "+getPassengerCapacity()+" Passengers, Fuel Capacity: "+getFuelCapacity()+
+                " Speed: "+getSpeed()+ ", Cost Per KM: "+getCostPerKM();
     }
 }

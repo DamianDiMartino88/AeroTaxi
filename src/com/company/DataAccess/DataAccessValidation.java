@@ -25,6 +25,15 @@ public class DataAccessValidation {
                 userFlight.getFlightDestiny().equals(companyFlight.getFlightDestiny()));
     }
 
+    public boolean flightRoutToCancel(UserFlight userFlightConfirmed, UserFlight userFlightToCancel){
+        return (userFlightConfirmed.getFlightOrigin().equals(userFlightToCancel.getFlightOrigin())&&
+                userFlightConfirmed.getFlightDestiny().equals(userFlightToCancel.getFlightDestiny()));
+    }
+
+    public boolean flightDateToCancel(UserFlight userFlightConfirmed, UserFlight userFlightToCancel){
+        return (userFlightConfirmed.getFlightDate().isEqual(userFlightToCancel.getFlightDate()));
+    }
+
 }
 
 

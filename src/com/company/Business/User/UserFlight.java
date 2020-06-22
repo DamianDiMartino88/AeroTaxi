@@ -60,13 +60,11 @@ public class UserFlight extends Flight {
 
     @Override
     public String toString() {
-        return "UserFlight{" +
-                "flightOrigin='" + getFlightOrigin() + '\'' +
-                ", flightDestiny='" + getFlightDestiny()+ '\'' +
-                ", flightCategory=" + getFlightCategory() +
-                ", flightDate=" + getFlightDate() +
-                ", flightCompanions=" + flightCompanions +
-                ", flightCost=" + flightCost +
-                '}';
+        return "Origin:'" + getFlightOrigin() + '\'' +
+                ", Destiny:'" + getFlightDestiny()+ '\'' +
+                ", Category:" + getFlightCategory() +
+                ", Date:" + getFlightDate() +
+                ", Companions:" + flightCompanions +
+                ", Cost:" + flightCost;
     }
 }

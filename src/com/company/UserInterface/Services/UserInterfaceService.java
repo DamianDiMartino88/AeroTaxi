@@ -662,14 +662,32 @@ public class UserInterfaceService implements Initializable {
     }
 
 
-    public void userExistence(int document) throws IOException {
+    private void userExistence(int document) throws IOException {
         User searchedUser = businessService.searchUser(document);
         setUser(searchedUser);
     }
 
-    public CompanyFlight companyExistence (UserFlight userFlight) throws IOException{
+    private CompanyFlight companyExistence (UserFlight userFlight) throws IOException{
         CompanyFlight searchedFlight = businessService.searchFlight(userFlight);
         return searchedFlight;
+    }
+
+    private List<User> getUsersList() throws IOException {
+        List<User> userList = businessService.getUsersList();
+        return userList;
+    }
+
+    private void userFlightsList(User user){
+        for (UserFlight userFlight: user.getFlightsList()) {
+            userFlight.toString();
+        }
+    }
+
+    private void saveNewUser(User user) throws IOException {
+        businessService.saveNewUser(user);
+    }
+    private void cancelFlight(User user, UserFlight userFlight){
+        businessService.cancelFlight(user,userFlight);
     }
 
     public User getUser() {

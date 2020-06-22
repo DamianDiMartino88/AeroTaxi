@@ -72,4 +72,13 @@ public class Company {
     public void addCompanyFlights(CompanyFlight companyFlight) {
         this.companyFlightsList.add(companyFlight);
     }
+
+    @Override
+    public String toString() {
+        return "AeroTaxi Company: " +
+                "Planes Fleet: " + planesList +
+                ", Destinys List: " + citysList +
+                ", Flights List: " + companyFlightsList +
+                '}';
+    }
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashSet;
 
 public class Flight {
-    private int flightState;
+    private int flightState=0;
     private String flightOrigin;
     private String flightDestiny;
     private Plane flightCategory;
@@ -30,6 +30,16 @@ public class Flight {
         this.flightCategory = flightCategory;
         this.flightDate = flightDate;
     }
+
+    public int getFlightState() {
+        return flightState;
+    }
+
+    public void cancelFlight() {
+        this.flightState = 0;
+    }
+
+    public void confirmFlight() {this.flightState = 1; }
 
     public String getFlightOrigin() {
         return flightOrigin;
@@ -65,11 +75,9 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightOrigin='" + flightOrigin + '\'' +
-                ", flightDestiny='" + flightDestiny + '\'' +
-                ", flightCategory=" + flightCategory +
-                ", flightDate=" + flightDate +
-                '}';
+        return "Origin: '" + flightOrigin + '\'' +
+                ", Destiny: '" + flightDestiny + '\'' +
+                ", Category:" + flightCategory +
+                ", Date: " + flightDate;
     }
 }
