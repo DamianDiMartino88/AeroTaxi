@@ -11,15 +11,15 @@ public class UserFlight extends Flight {
     private int flightCompanions;
     private double flightCost;
 
-    /*public UserFlight(){
+    public UserFlight(){
         super();
-        this.userFlightCounter++;
-        this.userFlightId=this.userFlightCounter;
+        //this.userFlightCounter++;
+        //this.userFlightId=this.userFlightCounter;
         this.flightCompanions=0;
         this.flightCost=0;
-    }*/
+    }
 
-    public UserFlight(String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate, int flightCompanions){
+    public UserFlight(String flightOrigin, String flightDestiny, Plane flightCategory, String flightDate, int flightCompanions){
         super(flightOrigin, flightDestiny, flightCategory, flightDate);
         //this.userFlightCounter++;
         //this.userFlightId=this.userFlightCounter;

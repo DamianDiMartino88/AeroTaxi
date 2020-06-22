@@ -14,8 +14,8 @@ public class User {
 
     public User()
     {
-        this.userName=null;
-        this.userLastName=null;
+        this.userName="";
+        this.userLastName="";
         this.userDocument=0;
         this.userAge=0;
         this.flightsList=new ArrayList<>();

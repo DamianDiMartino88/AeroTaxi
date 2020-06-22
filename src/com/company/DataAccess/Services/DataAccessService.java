@@ -19,6 +19,7 @@ import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
 import java.net.UnknownServiceException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,6 +31,7 @@ public class DataAccessService <T> {
     private String fileUser;
     private String fileCompany;
     DataAccessValidation validations = new DataAccessValidation();
+    Company company = new Company();
     //private File FileCompany = new File("Company.json");
 
     //constructor
@@ -47,7 +49,7 @@ public class DataAccessService <T> {
 
     // guarda lista de cualquier tipo en el json pasado por parametro
     private void writeListJSON(List<User> type, String json) throws JsonGenerationException, JsonMappingException, IOException {
-        mapper.writeValue(new File(json), type);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(json), type);
     }
 
     //lee una lista de cualquier tipo en el json que le pases por parametro
@@ -144,7 +146,7 @@ public class DataAccessService <T> {
         if (obj instanceof Plane) {
             company.addPlanes((Plane) obj);
         }
-        mapper.writeValue(new File(this.getNameFileCompany()), company);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.getNameFileCompany()), company);
     }
 
     public void writeComp (Company company) throws IOException {

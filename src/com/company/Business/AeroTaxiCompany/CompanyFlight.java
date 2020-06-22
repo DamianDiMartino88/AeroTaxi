@@ -16,7 +16,7 @@ public class CompanyFlight extends Flight {
     }
 
 
-    public CompanyFlight(String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate, int flightPassengers){
+    public CompanyFlight(String flightOrigin, String flightDestiny, Plane flightCategory, String flightDate, int flightPassengers){
         super(flightOrigin, flightDestiny, flightCategory, flightDate);
         //this.companyFlightCounter++;
         // this.companyFlightId=this.companyFlightCounter;

@@ -1,7 +1,10 @@
 package com.company.DataAccess;
 
 import com.company.Business.AeroTaxiCompany.CompanyFlight;
+import com.company.Business.AeroTaxiCompany.Plane.BronzePlane;
+import com.company.Business.AeroTaxiCompany.Plane.GoldPlane;
 import com.company.Business.AeroTaxiCompany.Plane.Plane;
+import com.company.Business.AeroTaxiCompany.Plane.SilverPlane;
 import com.company.Business.User.UserFlight;
 
 public class DataAccessValidation {
@@ -17,7 +20,31 @@ public class DataAccessValidation {
     }
 
     public boolean flightType(UserFlight flight, Plane plane){
+/*
+        if(flight.getFlightCategory() instanceof GoldPlane){
+            flight.setFlightCategory((GoldPlane)flight.getFlightCategory());
+        }
+        System.out.println(flight.getFlightCategory() instanceof GoldPlane);
+        if(flight.getFlightCategory() instanceof SilverPlane){
+            flight.setFlightCategory((SilverPlane)flight.getFlightCategory());
+        }
+        System.out.println(flight.getFlightCategory() instanceof SilverPlane);
+        if(flight.getFlightCategory() instanceof BronzePlane){
+            flight.setFlightCategory((BronzePlane)flight.getFlightCategory());
+        }
+        System.out.println(flight.getFlightCategory() instanceof BronzePlane);
+        if(plane instanceof GoldPlane){
+            plane=(GoldPlane)plane;
+        }
+        if(plane instanceof SilverPlane){
+            plane=(SilverPlane)plane;
+        }
+        if(plane instanceof BronzePlane){
+            plane=(BronzePlane)plane;
+        }*/
+
         return (flight.getFlightCategory().equals(plane));
+
     }
 
     public boolean flightRout(UserFlight userFlight, CompanyFlight companyFlight){
@@ -31,7 +58,7 @@ public class DataAccessValidation {
     }
 
     public boolean flightDateToCancel(UserFlight userFlightConfirmed, UserFlight userFlightToCancel){
-        return (userFlightConfirmed.getFlightDate().isEqual(userFlightToCancel.getFlightDate()));
+        return (userFlightConfirmed.getFlightDate().equals(userFlightToCancel.getFlightDate()));
     }
 
 }

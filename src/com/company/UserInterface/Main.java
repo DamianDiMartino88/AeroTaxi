@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,20 +54,20 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException {
 
-        //Company company = new Company();
+        Company company = new Company();
         DataAccessService ds = new DataAccessService();
         //guardo en el archivo la compania
-        //ds.writeComp(company);
-        /*User user = new User("gurrieri","valeria", 37010807, 28);
+ /*       ds.writeComp(company);
+        User user = new User("gurrieri","valeria", 37010807, 28);
         User user2 = new User("eldam","diamrti", 33480796, 32);
         User user3 = new User("gise","cruz", 35012487, 30);
         List<User> userList = new ArrayList<>();
         userList.add(user);
         userList.add(user2);
-        userList.add(user3);*/
+        userList.add(user3);
         //guardo en el archivo los usuarios
-        //ds.writeUser(userList);
-
+        ds.writeUser(userList);
+*/
         launch(args);
     }
 }

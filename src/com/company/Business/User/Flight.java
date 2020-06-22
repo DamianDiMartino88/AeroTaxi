@@ -13,7 +13,7 @@ public class Flight {
     private String flightOrigin;
     private String flightDestiny;
     private Plane flightCategory;
-    private LocalDate flightDate;
+    private String flightDate;
 
     public Flight (){
         this.flightState=0;
@@ -23,7 +23,7 @@ public class Flight {
         this.flightDate=null;
     }
 
-    public Flight (String flightOrigin, String flightDestiny, Plane flightCategory, LocalDate flightDate){
+    public Flight (String flightOrigin, String flightDestiny, Plane flightCategory, String flightDate){
         this.flightState=0;
         this.flightOrigin = flightOrigin;
         this.flightDestiny = flightDestiny;
@@ -65,11 +65,11 @@ public class Flight {
         this.flightCategory = flightCategory;
     }
 
-    public LocalDate getFlightDate() {
+    public String getFlightDate() {
         return flightDate;
     }
 
-    public void setFlightDate(LocalDate flightDate) {
+    public void setFlightDate(String flightDate) {
         this.flightDate = flightDate;
     }
 

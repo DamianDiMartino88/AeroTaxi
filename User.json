@@ -3,7 +3,23 @@
   "userLastName" : "valeria",
   "userDocument" : 37010807,
   "userAge" : 28,
-  "flightsList" : [ ]
+  "flightsList" : [ {
+    "flightState" : 1,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Cordoba",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 10000,
+      "costPerKM" : 225.0,
+      "passengerCapacity" : 10,
+      "speed" : 855.0,
+      "propulsionType" : "PISTONSENGINE"
+    },
+    "flightDate" : "2262020",
+    "userFlightId" : 0,
+    "flightCompanions" : 2,
+    "flightCost" : 11000.0
+  } ]
 }, {
   "userName" : "eldam",
   "userLastName" : "diamrti",

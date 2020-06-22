@@ -29,6 +29,7 @@ import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -126,18 +127,16 @@ public class UserInterfaceService implements Initializable {
 
 
     //usuario
-    private User user;
+    private User user ;
 
     //vuelo del usuario
     private UserFlight uFlight;
 
     //vuelo
-    private Flight flight;
-
-    //compania
-    private CompanyFlight companyFlight;
+    private Flight flight = new Flight();
 
     //vuelos de la compania
+    private CompanyFlight companyFlight = new CompanyFlight();
 
     //Compani
     private Company company = new Company();
@@ -146,7 +145,6 @@ public class UserInterfaceService implements Initializable {
     //para mostrar los datos de los ComboBox
     ObservableList<String> menuComboBoxContent = FXCollections.observableArrayList("Book a Flight", "Cancel a Flight", "My Account", "Company");
     ObservableList<Integer> passengersComboBoxContent = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
-    //ObservableList<Plane> planeCategoryComboBoxContent = FXCollections.observableArrayList();
     ObservableList<Plane> flightListViewContent = FXCollections.observableArrayList();
     ObservableList<UserFlight> cancelListViewContent = FXCollections.observableArrayList();
     ObservableList<UserFlight> accountFlightListViewContent = FXCollections.observableArrayList();
@@ -177,11 +175,14 @@ public class UserInterfaceService implements Initializable {
         //lista de vuelos
 
         //lista de vuelos a elegir
+        /*
         try {
             loadFlightListContent(flightListViewContent);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
+
         flightListListView.setItems(flightListViewContent);
 
         //registro
@@ -192,40 +193,43 @@ public class UserInterfaceService implements Initializable {
 
         //cancelacion
         idCancelTextField.addEventFilter(KeyEvent.ANY, handlerNumbersID);
-        reservationCodeTextField.addEventFilter(KeyEvent.ANY, handlerCancelCodeLetters);
+
+        //myUserAccount
+        idAccountTextField.addEventFilter(KeyEvent.ANY, handlerNumbersID);
+
         //lista de vuelo a cancelar
-        try {
+      /*  try {
             loadCancelListContent(cancelListViewContent);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         cancelListView.setItems(cancelListViewContent);
 
 
         //cuenta del usuario
         idAccountTextField.addEventFilter(KeyEvent.ANY, handlerNumbersID);
         //lista de sus vuelos
-        try {
-            loadCancelListContent(accountFlightListViewContent);
+      /*  try {
+            loadCompanyUsersList(accountFlightListViewContent);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         accountFlightListView.setItems(accountFlightListViewContent);
 
         //cuenta de la compania
         //panel de usuarios de la compania
-        try {
+        /*try {
             loadCompanyUsersList(companyUsersListViewContent);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         companyUsersListView.setItems(companyUsersListViewContent);
         //panel de lista de vuelos programados
-        try {
+        /*try {
             loadCompanyFlightsList(companyScheduledFlightsListViewContent);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         companyFlightsListView.setItems(companyScheduledFlightsListViewContent);
     }
 
@@ -269,6 +273,11 @@ public class UserInterfaceService implements Initializable {
 
     public void onBackButtonBookClicked (MouseEvent event){
 
+
+        //menuComboBox.resetValidation();
+        //menuComboBoxContent.clear();
+        menuComboBox.setItems(menuComboBoxContent);
+
         startPanel.setVisible(true);
         bookAflightPanel.setVisible(false);
         registerPanel.setVisible(false);
@@ -283,10 +292,6 @@ public class UserInterfaceService implements Initializable {
         companyChoicePanel.setVisible(false);
         companyFlightsListPanel.setVisible(false);
         companyUsersPanel.setVisible(false);
-
-        menuComboBox.setFocusColor(Paint.valueOf("#ffffff"));
-
-        menuComboBox.setItems(menuComboBoxContent);
     }
 
     public void onBackButtonPickClicked (MouseEvent event){
@@ -478,35 +483,6 @@ public class UserInterfaceService implements Initializable {
         }
     };
 
-    EventHandler<KeyEvent> handlerCancelCodeLetters = new EventHandler<KeyEvent>() {
-        private boolean willConsume = false;
-        private int maxLength =6;
-
-        @Override
-        public void handle(KeyEvent event) {
-
-            if (willConsume)
-                event.consume();
-
-            if (!event.getCode().toString().matches("[a-zA-Z]") && (event.getCode() != KeyCode.BACK_SPACE) && (event.getCode() != KeyCode.SHIFT)){
-                if (event.getEventType() == KeyEvent.KEY_PRESSED){
-                    willConsume = true;
-                }else if (event.getEventType() == KeyEvent.KEY_RELEASED){
-                    willConsume = false;
-                }
-            }
-
-            JFXTextField id = (JFXTextField) event.getSource();
-            if (id.getText().length() > maxLength - 1){
-                if (event.getEventType() == KeyEvent.KEY_PRESSED){
-                    willConsume = true;
-                }else if (event.getEventType() == KeyEvent.KEY_RELEASED){
-                    willConsume = false;
-                }
-            }
-        }
-    };
-
     Callback<DatePicker, DateCell> dayCellFactory = date -> new DateCell(){
         @Override
         public void updateItem(LocalDate item, boolean empty) {
@@ -516,7 +492,6 @@ public class UserInterfaceService implements Initializable {
             if (item.isBefore(LocalDate.now()) || item.isAfter(LocalDate.now().plusYears(1))) {
                 this.setDisable(true);
                 setStyle("-fx-background-color: #ffc0cb;");
-                //Platform.runLater(() -> setDisable(true));
             }
         }
     };
@@ -540,7 +515,7 @@ public class UserInterfaceService implements Initializable {
 
         businessService.saveFlight(user, uFlight);
 
-        if(user.getUserName().equals(null) || user.getUserLastName().equals(null) || user.getUserAge()==0){
+        if(user.getUserName().equals("") || user.getUserLastName().equals("") || user.getUserAge()==0){
             registerPanel.setVisible(true);
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -548,7 +523,19 @@ public class UserInterfaceService implements Initializable {
             alert.setHeaderText("You bought a flight");
             alert.showAndWait();
             startPanel.setVisible(true);
-        }
+            companyFlightsPanel.setVisible(false);
+            idRegisterPanel.setVisible(false);
+            registerPanel.setVisible(false);
+            bookAflightPanel.setVisible(false);
+            pickAflightPanel.setVisible(false);
+            cancelAflightPanel.setVisible(false);
+            flightToCancelPanel.setVisible(false);
+            myAccountPanel.setVisible(false);
+            userAccountPanel.setVisible(false);
+            companyPasswordPanel.setVisible(false);
+            companyChoicePanel.setVisible(false);
+            companyFlightsListPanel.setVisible(false);
+            companyUsersPanel.setVisible(false);
 
         companyFlight = companyExistence(uFlight);
 
@@ -558,14 +545,15 @@ public class UserInterfaceService implements Initializable {
             companyFlight.setFlightDestiny(uFlight.getFlightDestiny());
             companyFlight.setFlightCategory(uFlight.getFlightCategory());
             companyFlight.setFlightDate(uFlight.getFlightDate());
+            businessService.saveFlight(null, companyFlight);
         }
-
         businessService.addPassengers(uFlight, companyFlight);
-        businessService.saveFlight(null, companyFlight);
+        }
     }
 
     public void onMenuComboBoxChoice (ActionEvent event){
-        //int i = this.menuComboBox.getSelectionModel().getSelectedIndex();
+        ObservableList<String> menuComboBoxContent = FXCollections.observableArrayList("Book a Flight", "Cancel a Flight", "My Account", "Company");
+
         if (menuComboBox.getValue().equals("Book a Flight")){
             bookAflightPanel.setVisible(true);
             cancelAflightPanel.setVisible(false);
@@ -579,6 +567,7 @@ public class UserInterfaceService implements Initializable {
             companyChoicePanel.setVisible(false);
             companyFlightsListPanel.setVisible(false);
             companyUsersPanel.setVisible(false);
+            menuComboBox.resetValidation();
         }
         if (menuComboBox.getValue().equals("Cancel a Flight")){
             cancelAflightPanel.setVisible(true);
@@ -593,6 +582,7 @@ public class UserInterfaceService implements Initializable {
             companyChoicePanel.setVisible(false);
             companyFlightsListPanel.setVisible(false);
             companyUsersPanel.setVisible(false);
+            menuComboBox.resetValidation();
         }
         if (menuComboBox.getValue().equals("My Account")){
             myAccountPanel.setVisible(true);
@@ -607,6 +597,7 @@ public class UserInterfaceService implements Initializable {
             companyChoicePanel.setVisible(false);
             companyFlightsListPanel.setVisible(false);
             companyUsersPanel.setVisible(false);
+            menuComboBox.resetValidation();
         }
         if (menuComboBox.getValue().equals("Company")){
             companyPasswordPanel.setVisible(true);
@@ -621,10 +612,11 @@ public class UserInterfaceService implements Initializable {
             companyChoicePanel.setVisible(false);
             companyFlightsListPanel.setVisible(false);
             companyUsersPanel.setVisible(false);
+            menuComboBox.resetValidation();
         }
     }
 
-    public void onSaveSearchButtonClicked (ActionEvent event){
+    public void onSaveSearchButtonClicked (ActionEvent event) throws IOException {
 
         if (fromComboBox.getValue()==null || toComboBox.getValue()==null || flightDateDatePicker.getValue()==null || passengersComboBox.getValue()==null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -635,20 +627,22 @@ public class UserInterfaceService implements Initializable {
         }
 
         //guardo los valores del vuelo
-        LocalDate flightDate = flightDateDatePicker.getValue();
+        String date = flightDateDatePicker.getValue().getDayOfMonth() + String.valueOf((flightDateDatePicker.getValue().getMonthValue())) + flightDateDatePicker.getValue().getYear();
+
         String from = fromComboBox.getValue().getDenomination();
         String to = toComboBox.getValue().getDenomination();
         int passengers = passengersComboBox.getValue();
         Plane category = null;
 
-        UserFlight uf = new UserFlight(from, to, category, flightDate,  passengers);
+        UserFlight uf = new UserFlight(from, to, category, date,  passengers);
         setuFlight(uf);
         System.out.println(uFlight.toString());
 
-        Flight f = new Flight(from, to, category, flightDate);
+       /* Flight f = new Flight(from, to, category, date);
         setFlight(f);
-        //System.out.println(f.toString());
+        //System.out.println(f.toString());*/
         System.out.println(flight.toString());
+        loadFlightListContent(flightListViewContent);
 
     }
 
@@ -656,7 +650,8 @@ public class UserInterfaceService implements Initializable {
 
         //guardo el valor desde la lista del vuelo que eligio el usuario
 
-        uFlight.setFlightCategory((Plane)flightListListView.getSelectionModel().getSelectedItem());
+        uFlight.setFlightCategory(flightListListView.getSelectionModel().getSelectedItem());
+        //uFlight.setFlightCategory((uFlight.getFlightCategory().getClass())uFlight.getFlightCategory());
         //UserFlight uf = new UserFlight(getuFlight().getFlightOrigin(), getuFlight().getFlightDestiny(), getuFlight().getFlightCategory(), getuFlight().getFlightDate(), getuFlight().getFlightCompanions());
 
         //para calcular y setear el costo en el userFlight.
@@ -676,15 +671,14 @@ public class UserInterfaceService implements Initializable {
     }
 
     public void loadFlightListContent (ObservableList<Plane> flightList) throws IOException {
-
+        flightList.clear();
         //carga de la lista con vuelos disponibles segun el uFlight que ya cargue con los datos de la interfaz
-        BusinessService available = new BusinessService();
-        flightList.addAll( changePlanesList(available.availablePlanes(getuFlight())));
+        flightList.addAll( changePlanesList(businessService.availablePlanes(getuFlight())));
         //flightList.addAll(businessService.getPlanesList());
-
     }
 
     public void onSaveRegisterButtonClicked (ActionEvent event) throws IOException {
+        //Para guardar en el archivo
 
         if (nameTextField.getText().isEmpty() || lastNameTextField.getText().isEmpty() || ageTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -692,51 +686,44 @@ public class UserInterfaceService implements Initializable {
             alert.setHeaderText("Empty text/number field");
             alert.setContentText("All fields are required");
             alert.showAndWait();
+        }else{
+            user.setUserName(nameTextField.getText());
+            user.setUserLastName(lastNameTextField.getText());
+            user.setUserAge(Integer.parseInt(ageTextField.getText()));
+            System.out.println(user.toString());
+
+            saveNewUser(user);
+            businessService.saveFlight(user, uFlight);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Register");
+            alert.setHeaderText("You bought a flight");
+            alert.showAndWait();
+
+            startPanel.setVisible(true);
+            companyFlightsPanel.setVisible(false);
+            idRegisterPanel.setVisible(false);
+            registerPanel.setVisible(false);
+            bookAflightPanel.setVisible(false);
+            pickAflightPanel.setVisible(false);
+            cancelAflightPanel.setVisible(false);
+            flightToCancelPanel.setVisible(false);
+            myAccountPanel.setVisible(false);
+            userAccountPanel.setVisible(false);
+            companyPasswordPanel.setVisible(false);
+            companyChoicePanel.setVisible(false);
+            companyFlightsListPanel.setVisible(false);
+            companyUsersPanel.setVisible(false);;
+
         }
-
-        user.setUserName(nameTextField.getText());
-        user.setUserLastName(lastNameTextField.getText());
-        user.setUserAge(Integer.parseInt(ageTextField.getText()));
-        System.out.println(user.toString());
-
-
-        //User u = new User(name, lastName, id, age);
-        //u.addFlight(uFlight);
-        //setUser(u);
-
-        //Para guardar en el archivo
-        saveNewUser(user);
-        businessService.saveFlight(user, uFlight);
-
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Register");
-        alert.setHeaderText("You bought a flight");
-        alert.showAndWait();
-
-        startPanel.setVisible(true);
-        //System.out.println(user);
-
-        companyFlight = companyExistence(uFlight);
-
-        //if que si el vuelo ya existe le sume los acompañantes y si no que cree un companyFlight
-        if( companyFlight.getFlightOrigin().equals("") && companyFlight.getFlightDestiny().equals("")){
-            companyFlight.setFlightOrigin(uFlight.getFlightOrigin());
-            companyFlight.setFlightDestiny(uFlight.getFlightDestiny());
-            companyFlight.setFlightCategory(uFlight.getFlightCategory());
-            companyFlight.setFlightDate(uFlight.getFlightDate());
-        }
-
-        businessService.addPassengers(uFlight, companyFlight);
-        businessService.saveFlight(null, companyFlight);
-
     }
 
     public void loadCancelListContent (ObservableList<UserFlight> cancelFlightList) throws IOException {
-        int id = Integer.parseInt(idCancelTextField.getText());
+        //int id = Integer.parseInt(idCancelTextField.getText());
         //lo busca y me setea el usuario de ahi accedo a la lista de vuelo de ese usuario
-        userExistence(id);
-        cancelFlightList.addAll(user.getFlightsList());
+        //userExistence(id);
+        cancelFlightList.clear();
+        cancelFlightList.addAll(changeCancelLIst(user.getFlightsList()));
 
     }
 
@@ -750,18 +737,18 @@ public class UserInterfaceService implements Initializable {
             alert.setHeaderText("Empty text/number field");
             alert.setContentText("All fields are required");
             alert.showAndWait();
+        }else{
+            userExistence(id);
+            if (user.getUserDocument()==0){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cancel Flight");
+                alert.setHeaderText("No user found");
+                alert.setContentText("Insert a valid id");
+                alert.showAndWait();
+            }else{
+                loadCancelListContent(cancelListViewContent);
+            }
         }
-
-        userExistence(id);
-
-        if (user.getUserDocument()==0){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Cancel Flight");
-            alert.setHeaderText("No user found");
-            alert.setContentText("Insert a valid id");
-            alert.showAndWait();
-        }
-
     }
 
     public void onCancelBookingButtonClicked (ActionEvent event) throws IOException {
@@ -777,18 +764,24 @@ public class UserInterfaceService implements Initializable {
     public void onAccountButtonClicked (ActionEvent event) throws IOException {
         //valido si el id existe y retorno los datos del usuario
         int id = Integer.parseInt(idAccountTextField.getText());
+
+
         if (idAccountTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("My Account");
             alert.setHeaderText("Empty text/number field");
             alert.setContentText("All fields are required");
             alert.showAndWait();
-        }
-
-        userExistence(id);
-
+        }else
+            userExistence(id);
+            if(user.getUserName().equals("")&&user.getUserLastName().equals("")&&user.getUserAge()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("My Account");
+            alert.setHeaderText("No user Found");
+            alert.showAndWait();
+        }else{
         userAccountPanel.setVisible(true);
-        companyPasswordPanel.setVisible(true);
+        companyPasswordPanel.setVisible(false);
         myAccountPanel.setVisible(false);
         cancelAflightPanel.setVisible(false);
         startPanel.setVisible(false);
@@ -799,6 +792,8 @@ public class UserInterfaceService implements Initializable {
         companyChoicePanel.setVisible(false);
         companyFlightsListPanel.setVisible(false);
         companyUsersPanel.setVisible(false);
+        }
+        System.out.println(user.toString());
 
         //aca tengo que ver como mostrar en los text field los datos de user
         //seria user.getName() y volcarlo en el accountNameTextField.
@@ -829,30 +824,74 @@ public class UserInterfaceService implements Initializable {
             alert.setHeaderText("Invalid Password");
             alert.showAndWait();
         }
+        passwordTextField.clear();
     }
 
-    public void onSeeUsers (ActionEvent event){
+    public void onSeeUsers (ActionEvent event) throws IOException {
         companyUsersPanel.setVisible(true);
+        companyFlightsPanel.setVisible(false);
+        pickAflightPanel.setVisible(false);
+        registerPanel.setVisible(false);
+        startPanel.setVisible(false);
+        bookAflightPanel.setVisible(false);
+        cancelAflightPanel.setVisible(false);
+        flightToCancelPanel.setVisible(false);
+        myAccountPanel.setVisible(false);
+        userAccountPanel.setVisible(false);
+        idRegisterPanel.setVisible(false);
+        companyPasswordPanel.setVisible(false);
+        companyChoicePanel.setVisible(false);
+        companyFlightsListPanel.setVisible(false);
+
+        loadCompanyUsersList(companyUsersListViewContent);
     }
 
     public void loadCompanyUsersList (ObservableList<User> companyUsersList) throws IOException {
+        companyUsersList.clear();
         companyUsersList.addAll(getUsersList());
     }
 
     public void onSeeScheduledFlights (ActionEvent event){
         companyFlightsPanel.setVisible(true);
+        pickAflightPanel.setVisible(false);
+        registerPanel.setVisible(false);
+        startPanel.setVisible(false);
+        bookAflightPanel.setVisible(false);
+        cancelAflightPanel.setVisible(false);
+        flightToCancelPanel.setVisible(false);
+        myAccountPanel.setVisible(false);
+        userAccountPanel.setVisible(false);
+        idRegisterPanel.setVisible(false);
+        companyPasswordPanel.setVisible(false);
+        companyChoicePanel.setVisible(false);
+        companyFlightsListPanel.setVisible(false);
+        companyUsersPanel.setVisible(false);
 
     }
 
-    public void onSearchScheduleFlights (ActionEvent event){
+    public void onSearchScheduleFlights (ActionEvent event) throws IOException {
 
-        LocalDate flightDate = companyFlightDatePIcker.getValue();
+        String date = companyFlightDatePIcker.getValue().getDayOfMonth() + String.valueOf((companyFlightDatePIcker.getValue().getMonthValue())) + companyFlightDatePIcker.getValue().getYear();
+        companyScheduledFlightsListViewContent.clear();
+        companyScheduledFlightsListViewContent.addAll(changeScheduledFlightsList(businessService.flightOfTheDay(date)));
         companyFlightsListPanel.setVisible(true);
+        pickAflightPanel.setVisible(false);
+        registerPanel.setVisible(false);
+        startPanel.setVisible(false);
+        bookAflightPanel.setVisible(false);
+        cancelAflightPanel.setVisible(false);
+        flightToCancelPanel.setVisible(false);
+        myAccountPanel.setVisible(false);
+        userAccountPanel.setVisible(false);
+        idRegisterPanel.setVisible(false);
+        companyPasswordPanel.setVisible(false);
+        companyFlightsPanel.setVisible(false);
+        companyChoicePanel.setVisible(false);
+        companyUsersPanel.setVisible(false);
     }
 
     public void loadCompanyFlightsList (ObservableList<CompanyFlight> scheduledFlightsList ) throws IOException {
-        //scheduledFlightsList = businessService.flightOfTheDay(companyFlightDatePIcker.getValue());
-        scheduledFlightsList.addAll(changeScheduledFlightsList(businessService.flightOfTheDay(companyFlightDatePIcker.getValue())));
+        ///scheduledFlightsList.addAll(changeScheduledFlightsList(businessService.flightOfTheDay(companyFlightDatePIcker.getValue())));
     }
 
     private ObservableList<Plane> changePlanesList(HashSet<Plane> availablePlane){
@@ -871,9 +910,17 @@ public class UserInterfaceService implements Initializable {
         return newCitysList;
     }
 
+    private ObservableList<UserFlight> changeCancelLIst(List<UserFlight> cancelList){
+        ObservableList<UserFlight> newCancelList = FXCollections.observableArrayList();
+        for (UserFlight cancelLIsts : cancelList){
+            newCancelList.add(cancelLIsts);
+        }
+        return newCancelList;
+    }
+
     private ObservableList<CompanyFlight> changeScheduledFlightsList(List<CompanyFlight> scheduledList){
         ObservableList<CompanyFlight> newScheduledList = FXCollections.observableArrayList();
-        for (CompanyFlight scheduledFlights : newScheduledList){
+        for (CompanyFlight scheduledFlights : scheduledList){
             newScheduledList.add(scheduledFlights);
         }
         return newScheduledList;

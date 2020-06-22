@@ -19,6 +19,7 @@ import java.util.*;
 public class BusinessService {
     BusinessValidation validations = new BusinessValidation();
     DataAccessService dataSearch = new DataAccessService();
+    Company company = new Company();
     // En esta clase van a estar los metodos que comuniquen la informacion que el usuario ingrese
     // en la interfaz grafica, con la capa de datos
     //los requerimientos de datos primero van a pasar por aca, y luego se hace el pedido a la capa de datos
@@ -77,8 +78,10 @@ public class BusinessService {
     //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
     //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
     public  HashSet<Plane> availablePlanes(UserFlight flight) throws IOException {
-        List<CompanyFlight> flights = flightOfTheDay(flight.getFlightDate()); // llamada al metodo de DataAccess
+        List<CompanyFlight> flights = new ArrayList<>();
+        flights = flightOfTheDay(flight.getFlightDate()); // llamada al metodo de DataAccess
         HashSet<Plane> planesCategory = getPlanesList();
+        //HashSet<Plane> planesCategory = company.getPlanesList();
         HashSet<Plane>freePlanes = new HashSet<>();
         if(flights.size()==0){
            return planesCategory;
@@ -97,12 +100,12 @@ public class BusinessService {
         return freePlanes;
     }
 
-    public List<CompanyFlight> flightOfTheDay (LocalDate date) throws IOException {
+    public List<CompanyFlight> flightOfTheDay (String date) throws IOException {
         List<CompanyFlight> companyFlightList = new ArrayList<>();
         List<CompanyFlight> companyFlightListReturn = new ArrayList<>();
         companyFlightList = getCompanyFlightsList();
         for (CompanyFlight company: companyFlightList) {
-            if (date.isEqual(company.getFlightDate())){
+            if (date.equals(company.getFlightDate())){
                 companyFlightListReturn.add(company);
             }
         }return companyFlightListReturn;

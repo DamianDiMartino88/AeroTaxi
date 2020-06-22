@@ -4,6 +4,7 @@ import com.company.Business.AeroTaxiCompany.Plane.*;
 import com.company.Business.City;
 import com.company.Business.User.Flight;
 import com.company.Business.User.User;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,12 +24,17 @@ public class Company {
         this.citysList=addCitys();
         this.companyFlightsList=new ArrayList<>();
     }
+
+    @JsonSetter
     private static HashSet<Plane> addPlanes()
     {
         HashSet<Plane> planesList = new HashSet<>();
         planesList.add(new GoldPlane(PropulsionType.PROPELLERENGINE));
+        //System.out.println(planesList.);
         planesList.add(new GoldPlane(PropulsionType.PISTONSENGINE));
+
         planesList.add(new GoldPlane(PropulsionType.REACTIONENGINE));
+
         planesList.add(new SilverPlane(PropulsionType.PROPELLERENGINE));
         planesList.add(new SilverPlane(PropulsionType.PISTONSENGINE));
         planesList.add(new SilverPlane(PropulsionType.REACTIONENGINE));

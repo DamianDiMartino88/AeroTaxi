@@ -30,8 +30,6 @@ public class BronzePlane extends Plane {
 
     @Override
     public String toString() {
-        return  "Bronze Plane, Propulsion Type: "+getPropulsionType().getDenomination()+
-                " Capacity: "+getPassengerCapacity()+" Passengers, Fuel Capacity: "+getFuelCapacity()+
-                " Speed: "+getSpeed()+ ", Cost Per KM: "+getCostPerKM();
+        return  "Bronze Plane, Propulsion Type: "+ super.toString();
     }
 }

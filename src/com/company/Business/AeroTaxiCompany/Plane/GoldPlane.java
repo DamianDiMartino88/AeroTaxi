@@ -34,7 +34,7 @@ public class GoldPlane extends Plane implements ICatering {
                 && glp.getCostPerKM() == getCostPerKM()
                 && glp.getFuelCapacity() == getFuelCapacity()
                 && glp.getPassengerCapacity() == getPassengerCapacity()
-                && glp.getPropulsionType() == getPropulsionType()
+                && glp.getPropulsionType().equals(getPropulsionType())
                 && glp.getSpeed() == getSpeed();
     }
 

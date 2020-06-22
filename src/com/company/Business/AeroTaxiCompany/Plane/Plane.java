@@ -1,9 +1,19 @@
 package com.company.Business.AeroTaxiCompany.Plane;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = GoldPlane.class),
+        @JsonSubTypes.Type(value = SilverPlane.class),
+        @JsonSubTypes.Type(value = BronzePlane.class),
+})
 public class Plane {
     private int fuelCapacity;
     private double costPerKM;
