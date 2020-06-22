@@ -258,6 +258,47 @@
             </ImageView>
             <JFXListView fx:id="flightListListView" layoutX="23.0" layoutY="77.0" onMouseClicked="#onPickAflightListClicked" prefHeight="259.0" prefWidth="341.0" />
          </children></AnchorPane>
+      <AnchorPane fx:id="idRegisterPanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="300.0" layoutY="13.0" prefHeight="41.0" prefWidth="76.0" text="register" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="backButtonRegister" fitHeight="47.0" fitWidth="76.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonRegisterToListClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowregister.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="39.0" layoutY="136.0" prefHeight="47.0" prefWidth="87.0" text="ID:" textFill="#cdbebe">
+               <font>
+                  <Font name="Calibri" size="23.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="idCheckTextField" layoutX="161.0" layoutY="144.0" promptText="id number" />
+            <JFXButton fx:id="verifyButton" layoutX="284.0" layoutY="346.0" onAction="#onIdVerify" prefHeight="45.0" prefWidth="90.0" text="Id Verify" textFill="#d7c8c8">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="registerPanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
@@ -286,11 +327,6 @@
                   <Font name="Calibri" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="124.0" prefHeight="47.0" prefWidth="87.0" text="ID:" textFill="#cdbebe">
-               <font>
-                  <Font name="Calibri" size="23.0" />
-               </font>
-            </Label>
             <Label layoutX="30.0" layoutY="283.0" prefHeight="47.0" prefWidth="87.0" text="AGE:" textFill="#cdbebe">
                <font>
                   <Font name="Calibri" size="23.0" />
@@ -302,14 +338,8 @@
                </font>
             </Label>
             <JFXTextField fx:id="nameTextField" disable="true" layoutX="193.0" layoutY="185.0" promptText="name" />
-            <JFXTextField fx:id="idTextField" layoutX="193.0" layoutY="132.0" onAction="#onIdTextField" promptText="id number" />
             <JFXTextField fx:id="ageTextField" disable="true" layoutX="193.0" layoutY="291.0" promptText="age" />
             <JFXTextField fx:id="lastNameTextField" disable="true" layoutX="193.0" layoutY="238.0" promptText="last name" />
-            <ImageView fx:id="backButtonRegister" fitHeight="47.0" fitWidth="76.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonRegisterClicked" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/backarrowregister.png" />
-               </image>
-            </ImageView>
             <JFXButton fx:id="saveRegisterButton" layoutX="269.0" layoutY="352.0" onAction="#onSaveRegisterButtonClicked" prefHeight="47.0" prefWidth="117.0" text="Save" textFill="#cdbebe">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="20.0" />
@@ -357,13 +387,7 @@
                   <Font name="Calibri" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="165.0" prefHeight="47.0" prefWidth="123.0" text="Reservation:" textFill="#cdbebe">
-               <font>
-                  <Font name="Calibri" size="23.0" />
-               </font>
-            </Label>
             <JFXTextField fx:id="idCancelTextField" layoutX="178.0" layoutY="121.0" promptText="id number" />
-            <JFXTextField fx:id="reservationCodeTextField" layoutX="178.0" layoutY="173.0" promptText="6 letters reservation code " />
             <JFXButton fx:id="cancelSearchButton" layoutX="298.0" layoutY="355.0" onAction="#onCancelSearchButtonClicked" onMouseClicked="#onCancelAflightSearchButtonClicked" text="Search" textFill="#cdbebe">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="20.0" />
@@ -514,6 +538,189 @@
             <JFXTextField fx:id="accountNameTextField" layoutX="193.0" layoutY="61.0" />
             <JFXTextField fx:id="accountLastNameTextField" layoutX="193.0" layoutY="92.0" />
             <JFXTextField fx:id="accountAgeTextField" layoutX="193.0" layoutY="120.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="companyPasswordPanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="backButtonAccount1" fitHeight="47.0" layoutX="15.0" layoutY="342.0" onMouseClicked="#onBackButtonBookClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowbook.png" />
+               </image>
+            </ImageView>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="281.0" layoutY="13.0" prefHeight="47.0" prefWidth="90.0" text="company" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="39.0" layoutY="167.0" prefHeight="21.0" prefWidth="105.0" text="PASSWORD:" textFill="#cdbebe">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="280.0" layoutY="348.0" onAction="#verifyPassword" prefHeight="33.0" prefWidth="87.0" text="Sign in" textFill="#d0c2c2">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="passwordTextField" layoutX="174.0" layoutY="162.0" promptText="company password" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="companyChoicePanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="backButtonAccount11" fitHeight="47.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonBookClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowbook.png" />
+               </image>
+            </ImageView>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="281.0" layoutY="13.0" prefHeight="47.0" prefWidth="90.0" text="company" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="usersList" layoutX="53.0" layoutY="118.0" onAction="#onSeeUsers" text="Users" textFill="#f2d9d9">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="flightsList" layoutX="112.0" layoutY="182.0" onAction="#onSeeScheduledFlights" text="Scheduled Flights" textFill="#d7c6c6">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="companyInfo" layoutX="183.0" layoutY="247.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="companyUsersPanel" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="backButtonUsersCompany" fitHeight="47.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonUsersFlightsCompanyClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowbook.png" />
+               </image>
+            </ImageView>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="281.0" layoutY="13.0" prefHeight="47.0" prefWidth="90.0" text="company" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXListView fx:id="companyUsersListView" layoutX="23.0" layoutY="77.0" prefHeight="259.0" prefWidth="335.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="companyFlightsPanel" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="backButtonFlightsCompany" fitHeight="47.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonUsersFlightsCompanyClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowbook.png" />
+               </image>
+            </ImageView>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="281.0" layoutY="13.0" prefHeight="47.0" prefWidth="90.0" text="company" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="36.0" layoutY="132.0" prefHeight="47.0" prefWidth="87.0" text="DATE:" textFill="#cdbebe">
+               <font>
+                  <Font name="Calibri" size="23.0" />
+               </font>
+            </Label>
+            <JFXDatePicker fx:id="companyFlightDatePIcker" defaultColor="#007391" layoutX="145.0" layoutY="140.0" />
+            <JFXButton fx:id="searchCompanyButton" layoutX="292.0" layoutY="350.0" onAction="#onSearchScheduleFlights" text="Search" textFill="#c3b2b2">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="companyFlightsListPanel" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="backButtonFlightsCompany1" fitHeight="47.0" layoutX="6.0" layoutY="350.0" onMouseClicked="#onBackButtonScheduledFlightsClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/backarrowbook.png" />
+               </image>
+            </ImageView>
+            <AnchorPane id="encabezado" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <Label layoutX="8.0" prefHeight="59.0" prefWidth="181.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="9.0" opacity="0.37" prefWidth="144.0" text="AeroTaxi" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="8.0" layoutY="49.0" prefHeight="6.0" prefWidth="368.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="10.0" />
+                  <Separator layoutX="11.0" layoutY="52.0" opacity="0.47" prefHeight="6.0" prefWidth="368.0" />
+                  <Label layoutX="281.0" layoutY="13.0" prefHeight="47.0" prefWidth="90.0" text="company" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXListView fx:id="companyFlightsListView" layoutX="25.0" layoutY="70.0" prefHeight="271.0" prefWidth="341.0" />
          </children>
       </AnchorPane>
    </children>

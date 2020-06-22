@@ -97,7 +97,7 @@ public class BusinessService {
         return freePlanes;
     }
 
-    private List<CompanyFlight> flightOfTheDay (LocalDate date) throws IOException {
+    public List<CompanyFlight> flightOfTheDay (LocalDate date) throws IOException {
         List<CompanyFlight> companyFlightList = new ArrayList<>();
         List<CompanyFlight> companyFlightListReturn = new ArrayList<>();
         companyFlightList = getCompanyFlightsList();
