@@ -6,8 +6,6 @@ import com.company.Business.User.Flight;
 import java.time.LocalDate;
 
 public class CompanyFlight extends Flight {
-    //private static int companyFlightCounter=0;
-    //private int companyFlightId;
     private int flightPassengers;
 
     public CompanyFlight(){
@@ -18,8 +16,6 @@ public class CompanyFlight extends Flight {
 
     public CompanyFlight(String flightOrigin, String flightDestiny, Plane flightCategory, String flightDate, int flightPassengers){
         super(flightOrigin, flightDestiny, flightCategory, flightDate);
-        //this.companyFlightCounter++;
-        // this.companyFlightId=this.companyFlightCounter;
         this.flightPassengers=0;
     }
 
@@ -27,10 +23,12 @@ public class CompanyFlight extends Flight {
         return flightPassengers;
     }
 
+    //Agrega los pasajeros al vuelo
     public void addFlightPassengers(int flightPassengers) {
         this.flightPassengers = this.flightPassengers+flightPassengers;
     }
 
+    //Sobreescritura ToString para mostrar los datos del CompanyFLight
     @Override
     public String toString() {
         return "Origin: '" + getFlightOrigin() + '\'' +

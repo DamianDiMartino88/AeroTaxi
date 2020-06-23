@@ -19,6 +19,7 @@ public class SilverPlane extends Plane implements ICatering {
                 propulsiontype);
     }
 
+    //Sobreescritura metodo Equals para comparar categoria de aviones
     @Override
     public boolean equals(Object obj) {
         if(obj == this) return true;
@@ -30,11 +31,13 @@ public class SilverPlane extends Plane implements ICatering {
                 && slvp.getPropulsionType() == getPropulsionType()
                 && slvp.getSpeed() == getSpeed();
     }
+
     //metodo heredado de ICatering, devuelve " true " para los aviones tipo SILVER
     public boolean availableServices(){
         return this.hasCatering;
     }
 
+    //Imprime los datos de la categoria Bronze
     @Override
     public String toString() {
         return  "Silver Plane, Propulsion Type: "+getPropulsionType().getDenomination()+

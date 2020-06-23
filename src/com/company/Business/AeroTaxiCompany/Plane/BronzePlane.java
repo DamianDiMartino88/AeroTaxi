@@ -16,6 +16,7 @@ public class BronzePlane extends Plane {
                 propulsiontype);
     }
 
+    //Sobreescritura metodo Equals para comparar categoria de aviones
     @Override
     public boolean equals(Object obj) {
         if(obj == this) return true;
@@ -28,6 +29,7 @@ public class BronzePlane extends Plane {
                 && bzp.getSpeed() == getSpeed();
     }
 
+    //Imprime los datos de la categoria Bronze
     @Override
     public String toString() {
         return  "Bronze Plane, Propulsion Type: "+getPropulsionType().getDenomination()+

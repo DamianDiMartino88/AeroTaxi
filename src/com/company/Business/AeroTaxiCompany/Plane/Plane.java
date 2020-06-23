@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+/*Annotations para indicarle a Jackson las subclases q va a implementar al guardar listas de tipo "Plane"
+las cuales van a tener dentro Objetos de tipo GoldPlane, SilverPlane, y BronzePlane*/
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "type")
@@ -37,48 +40,27 @@ public class Plane {
         this.propulsionType=propulsiontype;
     }
 
-
-
     public int getFuelCapacity() {
         return fuelCapacity;
-    }
-
-    public void setFuelCapacity(int fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
     }
 
     public double getCostPerKM() {
         return costPerKM;
     }
 
-    public void setCostPerKM(double costPerKM) {
-        this.costPerKM = costPerKM;
-    }
-
     public int getPassengerCapacity() {
         return passengerCapacity;
-    }
-
-    public void setPassengerCapacity(int passengerCapacity) {
-        this.passengerCapacity = passengerCapacity;
     }
 
     public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
-        this.speed = speed;
-    }
-
     public PropulsionType getPropulsionType() {
         return propulsionType;
     }
 
-    public void setPropulsionType(PropulsionType propulsionType) {
-        this.propulsionType = propulsionType;
-    }
-
+ //Sobreescritura ToString para mostrar los datos del Plane
     @Override
     public String toString() {
         return "Plane{" +

@@ -25,16 +25,16 @@ public class Company {
         this.companyFlightsList=new ArrayList<>();
     }
 
+    /*Annotations para indicarle a Jackson las subclases q va a implementar al guardar listas de tipo "Plane"
+    las cuales van a tener dentro Objetos de tipo GoldPlane, SilverPlane, y BronzePlane*/
+    //Metodo llamado en el constructor de Company que crea los Planes y los asigna a un hashset de Plane para q nose repita la categoria
     @JsonSetter
     private static HashSet<Plane> addPlanes()
     {
         HashSet<Plane> planesList = new HashSet<>();
         planesList.add(new GoldPlane(PropulsionType.PROPELLERENGINE));
-        //System.out.println(planesList.);
         planesList.add(new GoldPlane(PropulsionType.PISTONSENGINE));
-
         planesList.add(new GoldPlane(PropulsionType.REACTIONENGINE));
-
         planesList.add(new SilverPlane(PropulsionType.PROPELLERENGINE));
         planesList.add(new SilverPlane(PropulsionType.PISTONSENGINE));
         planesList.add(new SilverPlane(PropulsionType.REACTIONENGINE));
@@ -57,10 +57,12 @@ public class Company {
         return citysList;
     }
 
+    //Agrega una ciudad a la lista
     public void addCitys(City city) {
         this.citysList.add(city);
     }
 
+    //Metodo llamado en el constructor de la clase Company, crea una list de City y le agrega todas las ciudades disponibles
     private List<City> addCitys() {
         this.citysList = new ArrayList<>();
         this.citysList.add(City.Buenos_Aires);
@@ -75,10 +77,12 @@ public class Company {
         return companyFlightsList;
     }
 
+    //Agrega un vuelo a la lista de vuelos de Company
     public void addCompanyFlights(CompanyFlight companyFlight) {
         this.companyFlightsList.add(companyFlight);
     }
 
+    //Sobreescritura deToString para imprimir la informacion de Company
     @Override
     public String toString() {
         return "AeroTaxi Company: " +

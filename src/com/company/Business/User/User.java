@@ -12,8 +12,7 @@ public class User {
     private int userAge;
     private List<UserFlight> flightsList;
 
-    public User()
-    {
+    public User(){
         this.userName="";
         this.userLastName="";
         this.userDocument=0;
@@ -21,8 +20,7 @@ public class User {
         this.flightsList=new ArrayList<>();
     }
 
-    public User(int userdocument)
-    {
+    public User(int userdocument){
         this.userName="";
         this.userLastName="";
         this.userDocument=userdocument;
@@ -30,8 +28,7 @@ public class User {
         this.flightsList=new ArrayList<>();
     }
 
-    public User(String username, String userlastname, int userdocument, int userage)
-    {
+    public User(String username, String userlastname, int userdocument, int userage){
         this.userName=username;
         this.userLastName=userlastname;
         this.userDocument=userdocument;
@@ -63,10 +60,6 @@ public class User {
         return userDocument;
     }
 
-    public void setUserDocument(int userDocument) {
-        this.userDocument = userDocument;
-    }
-
     public int getUserAge() {
         return userAge;
     }
@@ -79,10 +72,7 @@ public class User {
         return flightsList;
     }
 
-    public void setFlightsList(List<UserFlight> flightsList) {
-        this.flightsList = flightsList;
-    }
-
+    //Sobreescritura de ToString para mostar los datos del usuario
     @Override
     public String toString() {
         return "Name:'" + userName + '\'' +

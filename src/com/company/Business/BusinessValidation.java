@@ -7,33 +7,27 @@ import com.company.Business.User.Flight;
 import com.company.Business.User.UserFlight;
 
 public class BusinessValidation {
-    //validaciones necesarias en el paso de informacion entre las capas de datos  y de user interface,
-    // como por ejemplo en esta capa se van a hacer las validaciones de disponibilidad o capacidad de aviones
 
+    //Verifica que las ciudades de origen y destino no sean iguales
     public boolean cityValidation(String origin, String destiny){
         return (origin.equals(destiny))? false : true;
     }
 
+    //Verifica q el campo companions sea mayor o igual a 0 y sea numerico
     public boolean companionsValidation(int companions){
         boolean isNumeric = String.valueOf(companions).chars().allMatch(x -> Character.isDigit(x));
         return (companions>=0&&isNumeric)? true : false;
     }
 
+    /*Verifica que la cantidad de acompañantes mas el comprador,
+    mas los pasajeros del vuelo confirmados no superen la capacidad del vuelo*/
     public boolean flightCapacity(int companions, CompanyFlight flight){
        return ((flight.getFlightPassengers()+(companions+1))<=flight.getFlightCategory().getPassengerCapacity())? true : false;
     }
 
-    public boolean flightType(CompanyFlight flight, Plane plane){
-        return (flight.getFlightCategory().equals(plane));
-    }
-
+    //Verifica que la ruta sea la misma comparando origenes y destinos
     public boolean flightRout(UserFlight userFlight, CompanyFlight companyFlight){
         return (userFlight.getFlightOrigin().equals(companyFlight.getFlightOrigin())&&
                 userFlight.getFlightDestiny().equals(companyFlight.getFlightDestiny()));
     }
-
-    public boolean flightDate(String companyDate, String userDate){
-        return (companyDate.equals(userDate));
-    }
-
 }

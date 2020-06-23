@@ -1,9 +1,8 @@
 package com.company.Business.AeroTaxiCompany.Plane;
 
-
-
 public class GoldPlane extends Plane implements ICatering {
     private boolean hasWifi;
+
     public GoldPlane(){
         super();
         this.hasWifi=false;
@@ -25,6 +24,7 @@ public class GoldPlane extends Plane implements ICatering {
         return this.hasCatering;
     }
 
+    //Sobreescritura metodo Equals para comparar categoria de aviones
     @Override
     public boolean equals(Object obj) {
         if(obj == this) return true;
@@ -38,6 +38,7 @@ public class GoldPlane extends Plane implements ICatering {
                 && glp.getSpeed() == getSpeed();
     }
 
+    //Imprime los datos de la categoria Bronze
     @Override
     public String toString() {
         return  "Gold Plane, Propulsion Type: "+getPropulsionType().getDenomination()+

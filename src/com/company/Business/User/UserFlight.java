@@ -13,16 +13,12 @@ public class UserFlight extends Flight {
 
     public UserFlight(){
         super();
-        //this.userFlightCounter++;
-        //this.userFlightId=this.userFlightCounter;
         this.flightCompanions=0;
         this.flightCost=0;
     }
 
     public UserFlight(String flightOrigin, String flightDestiny, Plane flightCategory, String flightDate, int flightCompanions){
         super(flightOrigin, flightDestiny, flightCategory, flightDate);
-        //this.userFlightCounter++;
-        //this.userFlightId=this.userFlightCounter;
         this.flightCompanions=flightCompanions;
     }
 
@@ -34,22 +30,6 @@ public class UserFlight extends Flight {
         this.flightCompanions = flightCompanions;
     }
 
-    public static int getUserFlightCounter() {
-        return userFlightCounter;
-    }
-
-    public static void setUserFlightCounter(int userFlightCounter) {
-        UserFlight.userFlightCounter = userFlightCounter;
-    }
-
-    public int getUserFlightId() {
-        return userFlightId;
-    }
-
-    public void setUserFlightId(int userFlightId) {
-        this.userFlightId = userFlightId;
-    }
-
     public double getFlightCost() {
         return flightCost;
     }
@@ -58,6 +38,7 @@ public class UserFlight extends Flight {
         this.flightCost = flightCost;
     }
 
+    //Sobreescritura Metodo ToString para mostrar los datos de UserFlight
     @Override
     public String toString() {
         return "Origin:'" + getFlightOrigin() + '\'' +
