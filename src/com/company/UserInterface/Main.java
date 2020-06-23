@@ -57,7 +57,7 @@ public class Main extends Application {
         Company company = new Company();
         DataAccessService ds = new DataAccessService();
         //guardo en el archivo la compania
- /*       ds.writeComp(company);
+ /*     ds.writeCompanyFile(company);
         User user = new User("gurrieri","valeria", 37010807, 28);
         User user2 = new User("eldam","diamrti", 33480796, 32);
         User user3 = new User("gise","cruz", 35012487, 30);

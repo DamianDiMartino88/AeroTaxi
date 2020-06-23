@@ -15,6 +15,8 @@ import javafx.collections.ObservableList;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class BusinessService {
     BusinessValidation validations = new BusinessValidation();
@@ -77,28 +79,34 @@ public class BusinessService {
 
     //Recibo por parametro el vuelo q necesita el usuario, pido la lista de vuelos del dia
     //si no hay ninguno devuelvo la lista completa, sino aplico los filtros necesarios y devuelvo la lista de vuelos disponibles
+
     public  HashSet<Plane> availablePlanes(UserFlight flight) throws IOException {
-        List<CompanyFlight> flights = new ArrayList<>();
-        flights = flightOfTheDay(flight.getFlightDate()); // llamada al metodo de DataAccess
+        List<CompanyFlight> flights = flightOfTheDay(flight.getFlightDate());
+      //  flights = flightOfTheDay(flight.getFlightDate()); // llamada al metodo de DataAccess
         HashSet<Plane> planesCategory = getPlanesList();
-        //HashSet<Plane> planesCategory = company.getPlanesList();
+        List<Plane> unavailableList = new ArrayList<>();
+        HashSet<Plane> unavailableList2 = new HashSet<>();
         HashSet<Plane>freePlanes = new HashSet<>();
         if(flights.size()==0){
            return planesCategory;
         }else {
-            for (Plane plane :planesCategory) {
-                for (CompanyFlight confirmedFlight : flights) {
-                    if(!validations.flightType(confirmedFlight,plane)
-                            ||(validations.flightRout(flight,confirmedFlight))
-                            &&validations.flightCapacity(flight.getFlightCompanions(),confirmedFlight))
-                    {
-                        freePlanes.add(plane);
-                    }
+            freePlanes = planesCategory.stream()
+                    .filter(e -> (flights.stream()
+                            .filter(d -> d.getFlightCategory().equals(e))
+                            .count())<1)
+                    .collect(Collectors.toCollection(HashSet::new));
+            System.out.println(unavailableList);
+            for (CompanyFlight confirmedFlight: flights) {
+                if((validations.flightRout(flight,confirmedFlight))
+                        &&validations.flightCapacity(flight.getFlightCompanions(),confirmedFlight))
+                {
+                    freePlanes.add(confirmedFlight.getFlightCategory());
                 }
             }
         }
         return freePlanes;
     }
+
 
     public List<CompanyFlight> flightOfTheDay (String date) throws IOException {
         List<CompanyFlight> companyFlightList = new ArrayList<>();
@@ -172,9 +180,9 @@ public class BusinessService {
       return (pass.equals("LaContraseña.123"));
     }
 
-    public CompanyFlight searchFlight(UserFlight userFlight) throws IOException {
-        CompanyFlight searchedFlight = dataSearch.searchFlightInData(userFlight);
-        return searchedFlight;
+    public boolean searchFlight(UserFlight userFlight) throws IOException {
+        boolean response = dataSearch.searchFlightInData(userFlight);
+        return response;
     }
 
     //pide a la clase DataAccess la lista de usuarios
@@ -192,6 +200,23 @@ public class BusinessService {
             totalCost=totalCost+flight.getFlightCost();
         }
         return totalCost;
+    }
+
+    public String bestCategory(User user){
+        String bestPlane = "Bronze Plane";
+        String plane = "";
+        HashMap<String,Integer> categoryValues = new HashMap<>();
+        categoryValues.put("Gold Plane",1);
+        categoryValues.put("Silver Plane",2);
+        categoryValues.put("Bronze Plane",3);
+        for (UserFlight flight : user.getFlightsList())
+        {
+           plane = (flight.getFlightCategory() instanceof GoldPlane)? "Gold Plane"
+                   : (flight.getFlightCategory() instanceof GoldPlane) ? "Silver Plane" : "Bronze Plane";
+            bestPlane=(categoryValues.get(bestPlane)>=categoryValues.get(plane))?plane : bestPlane ;
+
+        }
+        return bestPlane;
     }
 
 

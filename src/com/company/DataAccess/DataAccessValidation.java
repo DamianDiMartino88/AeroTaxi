@@ -20,31 +20,7 @@ public class DataAccessValidation {
     }
 
     public boolean flightType(UserFlight flight, Plane plane){
-/*
-        if(flight.getFlightCategory() instanceof GoldPlane){
-            flight.setFlightCategory((GoldPlane)flight.getFlightCategory());
-        }
-        System.out.println(flight.getFlightCategory() instanceof GoldPlane);
-        if(flight.getFlightCategory() instanceof SilverPlane){
-            flight.setFlightCategory((SilverPlane)flight.getFlightCategory());
-        }
-        System.out.println(flight.getFlightCategory() instanceof SilverPlane);
-        if(flight.getFlightCategory() instanceof BronzePlane){
-            flight.setFlightCategory((BronzePlane)flight.getFlightCategory());
-        }
-        System.out.println(flight.getFlightCategory() instanceof BronzePlane);
-        if(plane instanceof GoldPlane){
-            plane=(GoldPlane)plane;
-        }
-        if(plane instanceof SilverPlane){
-            plane=(SilverPlane)plane;
-        }
-        if(plane instanceof BronzePlane){
-            plane=(BronzePlane)plane;
-        }*/
-
         return (flight.getFlightCategory().equals(plane));
-
     }
 
     public boolean flightRout(UserFlight userFlight, CompanyFlight companyFlight){
@@ -57,8 +33,12 @@ public class DataAccessValidation {
                 userFlightConfirmed.getFlightDestiny().equals(userFlightToCancel.getFlightDestiny()));
     }
 
-    public boolean flightDateToCancel(UserFlight userFlightConfirmed, UserFlight userFlightToCancel){
+    public boolean flightDate(UserFlight userFlightConfirmed, UserFlight userFlightToCancel){
         return (userFlightConfirmed.getFlightDate().equals(userFlightToCancel.getFlightDate()));
+    }
+
+    public boolean flightDate(CompanyFlight companyFlightConfirmed, UserFlight userFlightConfirmed){
+        return (companyFlightConfirmed.getFlightDate().equals(userFlightConfirmed.getFlightDate()));
     }
 
 }

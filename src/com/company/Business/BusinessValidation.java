@@ -32,5 +32,8 @@ public class BusinessValidation {
                 userFlight.getFlightDestiny().equals(companyFlight.getFlightDestiny()));
     }
 
+    public boolean flightDate(String companyDate, String userDate){
+        return (companyDate.equals(userDate));
+    }
 
 }

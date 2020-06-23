@@ -514,7 +514,6 @@ public class UserInterfaceService implements Initializable {
         System.out.println(user.toString());
 
         businessService.saveFlight(user, uFlight);
-
         if(user.getUserName().equals("") || user.getUserLastName().equals("") || user.getUserAge()==0){
             registerPanel.setVisible(true);
         }else{
@@ -537,17 +536,18 @@ public class UserInterfaceService implements Initializable {
             companyFlightsListPanel.setVisible(false);
             companyUsersPanel.setVisible(false);
 
-        companyFlight = companyExistence(uFlight);
+
 
         //if que si el vuelo ya existe le sume los acompañantes y si no que cree un companyFlight
-        if( companyFlight.getFlightOrigin().equals("") && companyFlight.getFlightDestiny().equals("")){
+        if( ! companyExistence(uFlight)){
             companyFlight.setFlightOrigin(uFlight.getFlightOrigin());
             companyFlight.setFlightDestiny(uFlight.getFlightDestiny());
             companyFlight.setFlightCategory(uFlight.getFlightCategory());
             companyFlight.setFlightDate(uFlight.getFlightDate());
-            businessService.saveFlight(null, companyFlight);
+            businessService.addPassengers(uFlight, companyFlight);
+           // businessService.saveFlight(null, companyFlight);
         }
-        businessService.addPassengers(uFlight, companyFlight);
+
         }
     }
 
@@ -932,9 +932,9 @@ public class UserInterfaceService implements Initializable {
         setUser(searchedUser);
     }
 
-    private CompanyFlight companyExistence (UserFlight userFlight) throws IOException{
-        CompanyFlight searchedFlight = businessService.searchFlight(userFlight);
-        return searchedFlight;
+    private boolean companyExistence (UserFlight userFlight) throws IOException{
+        boolean response = businessService.searchFlight(userFlight);
+        return response;
     }
 
     private List<User> getUsersList() throws IOException {

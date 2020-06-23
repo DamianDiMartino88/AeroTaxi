@@ -1,96 +1,110 @@
 {
   "planesList" : [ {
-    "type" : "GoldPlane",
-    "fuelCapacity" : 10000,
-    "costPerKM" : 225.0,
-    "passengerCapacity" : 10,
-    "speed" : 855.0,
-    "propulsionType" : "PISTONSENGINE"
-  }, {
     "type" : "SilverPlane",
     "fuelCapacity" : 150000,
     "costPerKM" : 300.0,
-    "passengerCapacity" : 10,
+    "passengerCapacity" : 25,
     "speed" : 2180.0,
     "propulsionType" : "REACTIONENGINE"
   }, {
-    "type" : "SilverPlane",
-    "fuelCapacity" : 10000,
-    "costPerKM" : 225.0,
-    "passengerCapacity" : 10,
-    "speed" : 855.0,
-    "propulsionType" : "PISTONSENGINE"
-  }, {
-    "type" : "SilverPlane",
-    "fuelCapacity" : 3000,
-    "costPerKM" : 150.0,
-    "passengerCapacity" : 10,
-    "speed" : 880.0,
-    "propulsionType" : "PROPELLERENGINE"
-  }, {
-    "type" : "BronzePlane",
-    "fuelCapacity" : 10000,
-    "costPerKM" : 225.0,
-    "passengerCapacity" : 20,
-    "speed" : 855.0,
-    "propulsionType" : "PISTONSENGINE"
-  }, {
     "type" : "BronzePlane",
     "fuelCapacity" : 3000,
     "costPerKM" : 150.0,
-    "passengerCapacity" : 20,
+    "passengerCapacity" : 7,
     "speed" : 880.0,
     "propulsionType" : "PROPELLERENGINE"
   }, {
     "type" : "GoldPlane",
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 25,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
+  }, {
+    "type" : "BronzePlane",
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 15,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "type" : "SilverPlane",
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 15,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "type" : "GoldPlane",
     "fuelCapacity" : 3000,
     "costPerKM" : 150.0,
-    "passengerCapacity" : 10,
+    "passengerCapacity" : 7,
     "speed" : 880.0,
     "propulsionType" : "PROPELLERENGINE"
   }, {
     "type" : "BronzePlane",
     "fuelCapacity" : 150000,
     "costPerKM" : 300.0,
-    "passengerCapacity" : 20,
+    "passengerCapacity" : 25,
     "speed" : 2180.0,
     "propulsionType" : "REACTIONENGINE"
   }, {
+    "type" : "SilverPlane",
+    "fuelCapacity" : 3000,
+    "costPerKM" : 150.0,
+    "passengerCapacity" : 7,
+    "speed" : 880.0,
+    "propulsionType" : "PROPELLERENGINE"
+  }, {
     "type" : "GoldPlane",
-    "fuelCapacity" : 150000,
-    "costPerKM" : 300.0,
-    "passengerCapacity" : 10,
-    "speed" : 2180.0,
-    "propulsionType" : "REACTIONENGINE"
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 15,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
   } ],
   "citysList" : [ "Buenos_Aires", "Cordoba", "Santiago_de_Chile", "Montevideo" ],
   "companyFlightsList" : [ {
     "flightState" : 0,
     "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Cordoba",
+    "flightDestiny" : "Santiago de Chile",
     "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 10,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
+      "type" : "BronzePlane",
+      "fuelCapacity" : 3000,
+      "costPerKM" : 150.0,
+      "passengerCapacity" : 7,
+      "speed" : 880.0,
+      "propulsionType" : "PROPELLERENGINE"
     },
-    "flightDate" : "2262020",
+    "flightDate" : "2362020",
     "flightPassengers" : 3
   }, {
     "flightState" : 0,
-    "flightOrigin" : "Buenos Aires",
+    "flightOrigin" : "Cordoba",
+    "flightDestiny" : "Buenos Aires",
+    "flightCategory" : {
+      "type" : "GoldPlane",
+      "fuelCapacity" : 3000,
+      "costPerKM" : 150.0,
+      "passengerCapacity" : 7,
+      "speed" : 880.0,
+      "propulsionType" : "PROPELLERENGINE"
+    },
+    "flightDate" : "2362020",
+    "flightPassengers" : 7
+  }, {
+    "flightState" : 0,
+    "flightOrigin" : "Montevideo",
     "flightDestiny" : "Cordoba",
     "flightCategory" : {
       "type" : "SilverPlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 10,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
+      "fuelCapacity" : 3000,
+      "costPerKM" : 150.0,
+      "passengerCapacity" : 7,
+      "speed" : 880.0,
+      "propulsionType" : "PROPELLERENGINE"
     },
-    "flightDate" : "2262020",
-    "flightPassengers" : 3
+    "flightDate" : "2362020",
+    "flightPassengers" : 10
   } ]
 }

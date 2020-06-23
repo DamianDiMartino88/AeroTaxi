@@ -11,7 +11,7 @@ public class BronzePlane extends Plane {
     public BronzePlane( PropulsionType propulsiontype){
         super( (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?3000:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 10000 : 150000)),
                 (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?150:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 225 : 300))
-                , 20,
+                , (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?7:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 15 : 25)),
                 (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?880:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 855 : 2180)),
                 propulsiontype);
     }

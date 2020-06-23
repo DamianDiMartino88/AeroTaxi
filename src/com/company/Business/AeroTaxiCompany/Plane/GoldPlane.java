@@ -14,7 +14,7 @@ public class GoldPlane extends Plane implements ICatering {
     public GoldPlane( PropulsionType propulsiontype){
         super( (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?3000:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 10000 : 150000)),
                 (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?150:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 225 : 300))
-                , 10,
+                , (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?7:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 15 : 25)),
                 (propulsiontype.equals(PropulsionType.PROPELLERENGINE)?880:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? 855 : 2180)),
                 propulsiontype);
         this.hasWifi=(propulsiontype.equals(PropulsionType.PROPELLERENGINE)?false:(propulsiontype.equals(PropulsionType.PISTONSENGINE)? false : true));

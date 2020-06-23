@@ -90,6 +90,7 @@ public class DataAccessService <T> {
         return newUser;
     }
 
+    //trae al nuevo usuario, lo agrega a la lista de usuarios lo agrega en el archivo de usuarios
     public void saveNewUser(User user) throws IOException {
         List<User> userList = readListFileJSON(this.getNameFileUser());
         userList.add(user);
@@ -108,7 +109,7 @@ public class DataAccessService <T> {
        }
        if (flight instanceof CompanyFlight)
        {
-           writeCompanyFile(flight);
+           addInfoCompanyFile(flight);
        }
    }
 
@@ -116,26 +117,28 @@ public class DataAccessService <T> {
         List<User> userList = readListFileJSON(this.getNameFileUser());
         for (User users: userList) {
             if(user.getUserDocument()==users.getUserDocument()){
-                changeState(user, userFlightToCancel);
+                users=changeState(users, userFlightToCancel);
             }
         }
         writeListJSON(userList,this.getNameFileUser());
     }
 
-    private void changeState(User user, UserFlight userFlightToCancel){
+    private User changeState(User user, UserFlight userFlightToCancel){
         for (UserFlight userFlight: user.getFlightsList()) {
             if(validations.flightRoutToCancel(userFlight,userFlightToCancel)&&
-                    validations.flightDateToCancel(userFlight,userFlightToCancel)){
+                    validations.flightDate(userFlight,userFlightToCancel))
+            {
                 userFlight.cancelFlight();
             }
         }
+        return user;
     }
 
     //metodo de datos de compañia, recibe un tipo OBJECT se busca en la base de datos la compañia
     //luego se ve q tipo de objeto es y se agrega a la lista correspondiente de la compañia
     //este metodo ya lo adapte a la clase para llamarla se inicialisa un DataAccessService <T> pasasandole un tipo y lugo llamas escribirCompanyF
 
-    private void writeCompanyFile(T obj) throws JsonGenerationException, JsonMappingException, IOException {
+    private void addInfoCompanyFile(T obj) throws JsonGenerationException, JsonMappingException, IOException {
         Company company = readCompanyFile();
         if (obj instanceof Flight) {
             company.addCompanyFlights((CompanyFlight) obj);
@@ -148,8 +151,7 @@ public class DataAccessService <T> {
         }
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.getNameFileCompany()), company);
     }
-
-    public void writeComp (Company company) throws IOException {
+    public void writeCompanyFile(Company company) throws JsonGenerationException, JsonMappingException, IOException {
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.getNameFileCompany()), company);
     }
 
@@ -180,25 +182,6 @@ public class DataAccessService <T> {
         return company;
     }
 
-    //trae al nuevo usuario, lo agrega a la lista de usuarios de la compañia, lo agrega en el archivo de usuarios
-    // adaptada a la clase
-    public void saveNewUser(T newUser) throws IOException {
-        writeCompanyFile(newUser);
-        DataAccessService<User> userDataAccessService = new DataAccessService<User>();
-        List<User> userList = userDataAccessService.readListFileJSON(this.getNameFileUser());
-        userList.add((User)newUser);
-        userDataAccessService.writeListJSON(userList, this.getNameFileUser());
-    }
-
-    // lo que habia ::
-    /*public void saveNewUser(User newUser) throws IOException {
-        writeCompanyFile(newUser);
-
-        List<User> userList = readListUserFile();
-        userList.add(newUser);
-        writeListUserFile(userList);
-    }*/
-
     //metodo para agregar un vuelo a la lista de vuelos de un usuario
     //adaptada a la clase
      public void addNewFlightToUser(User user, UserFlight flight) throws IOException {
@@ -224,23 +207,27 @@ public class DataAccessService <T> {
         }
         writeListUserFile(usersList);
     }*/
-    public CompanyFlight searchFlightInData(UserFlight userFlight) throws IOException {
+    public boolean searchFlightInData(UserFlight userFlight) throws IOException {
+        boolean response = false;
         Company company = readCompanyFile();
-        CompanyFlight newFlight = checkFlightExistence(company.getCompanyFlightsList(),userFlight);
-        return  newFlight;
+        response = checkFlightExistence(userFlight);
+        return  response;
     }
 
-    private CompanyFlight checkFlightExistence(List<CompanyFlight> flightsList, UserFlight userFlight) {
-        CompanyFlight newFlight=new CompanyFlight();
-
-        for (CompanyFlight flights : flightsList) {
+    private boolean checkFlightExistence( UserFlight userFlight) throws IOException {
+        boolean response = false;
+        Company company = readCompanyFile();
+        for (CompanyFlight flights : company.getCompanyFlightsList()) {
             if (validations.flightType(userFlight, flights.getFlightCategory())
-                    && (validations.flightRout(userFlight, flights)))
+                    && (validations.flightRout(userFlight, flights))
+                    &&validations.flightDate(flights,userFlight))
             {
-                newFlight=flights;
+                flights.addFlightPassengers(userFlight.getFlightCompanions()+1);
+                response=true;
             }
         }
-        return newFlight;
+       writeCompanyFile(company);
+        return response;
     }
 
 } 
