@@ -4,7 +4,7 @@
   "userDocument" : 37010807,
   "userAge" : 28,
   "flightsList" : [ {
-    "flightState" : 1,
+    "flightState" : 0,
     "flightOrigin" : "Cordoba",
     "flightDestiny" : "Montevideo",
     "flightCategory" : {
@@ -19,6 +19,86 @@
     "userFlightId" : 0,
     "flightCompanions" : 1,
     "flightCost" : 7500.0
+  }, {
+    "flightState" : 0,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Santiago de Chile",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 10000,
+      "costPerKM" : 225.0,
+      "passengerCapacity" : 15,
+      "speed" : 855.0,
+      "propulsionType" : "PISTONSENGINE"
+    },
+    "flightDate" : "2362020",
+    "userFlightId" : 0,
+    "flightCompanions" : 1,
+    "flightCost" : 7500.0
+  }, {
+    "flightState" : 0,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Santiago de Chile",
+    "flightCategory" : {
+      "type" : "BronzePlane",
+      "fuelCapacity" : 10000,
+      "costPerKM" : 225.0,
+      "passengerCapacity" : 15,
+      "speed" : 855.0,
+      "propulsionType" : "PISTONSENGINE"
+    },
+    "flightDate" : "2362020",
+    "userFlightId" : 0,
+    "flightCompanions" : 1,
+    "flightCost" : 6500.0
+  }, {
+    "flightState" : 1,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Cordoba",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 150000,
+      "costPerKM" : 300.0,
+      "passengerCapacity" : 25,
+      "speed" : 2180.0,
+      "propulsionType" : "REACTIONENGINE"
+    },
+    "flightDate" : "2562020",
+    "userFlightId" : 0,
+    "flightCompanions" : 0,
+    "flightCost" : 4000.0
+  }, {
+    "flightState" : 1,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Cordoba",
+    "flightCategory" : {
+      "type" : "BronzePlane",
+      "fuelCapacity" : 10000,
+      "costPerKM" : 225.0,
+      "passengerCapacity" : 15,
+      "speed" : 855.0,
+      "propulsionType" : "PISTONSENGINE"
+    },
+    "flightDate" : "2462020",
+    "userFlightId" : 0,
+    "flightCompanions" : 0,
+    "flightCost" : 3000.0
+  }, {
+    "flightState" : 0,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Santiago de Chile",
+    "flightCategory" : {
+      "type" : "GoldPlane",
+      "fuelCapacity" : 10000,
+      "costPerKM" : 225.0,
+      "passengerCapacity" : 15,
+      "speed" : 855.0,
+      "propulsionType" : "PISTONSENGINE"
+    },
+    "flightDate" : "2362020",
+    "userFlightId" : 0,
+    "flightCompanions" : 0,
+    "flightCost" : 6000.0
   } ]
 }, {
   "userName" : "eldam",

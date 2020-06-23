@@ -167,8 +167,12 @@ public class BusinessService {
     //se agregan los acompañantes mas el user a la cantidad de pasajeros de CompanyFlight,
     //Luego se guarda CompanyFlight en el archivo
     public void addPassengers(UserFlight userFlight, CompanyFlight companyFlight) throws IOException {
-        companyFlight.addFlightPassengers(userFlight.getFlightCompanions()+1);
-        saveFlight(null,companyFlight);
+        if((userFlight.getFlightCompanions()+1)>0){
+            companyFlight.addFlightPassengers(userFlight.getFlightCompanions() + 1);
+            saveFlight(null, companyFlight);
+        }else {
+            companyFlight.addFlightPassengers(userFlight.getFlightCompanions()-1);
+        }
     }
     //confirmar este metodo
 
