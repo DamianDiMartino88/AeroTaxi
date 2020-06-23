@@ -3,103 +3,7 @@
   "userLastName" : "valeria",
   "userDocument" : 37010807,
   "userAge" : 28,
-  "flightsList" : [ {
-    "flightState" : 0,
-    "flightOrigin" : "Cordoba",
-    "flightDestiny" : "Montevideo",
-    "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 150000,
-      "costPerKM" : 300.0,
-      "passengerCapacity" : 25,
-      "speed" : 2180.0,
-      "propulsionType" : "REACTIONENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 1,
-    "flightCost" : 7500.0
-  }, {
-    "flightState" : 0,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Santiago de Chile",
-    "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 15,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 1,
-    "flightCost" : 7500.0
-  }, {
-    "flightState" : 0,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Santiago de Chile",
-    "flightCategory" : {
-      "type" : "BronzePlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 15,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 1,
-    "flightCost" : 6500.0
-  }, {
-    "flightState" : 1,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Cordoba",
-    "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 150000,
-      "costPerKM" : 300.0,
-      "passengerCapacity" : 25,
-      "speed" : 2180.0,
-      "propulsionType" : "REACTIONENGINE"
-    },
-    "flightDate" : "2562020",
-    "userFlightId" : 0,
-    "flightCompanions" : 0,
-    "flightCost" : 4000.0
-  }, {
-    "flightState" : 1,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Cordoba",
-    "flightCategory" : {
-      "type" : "BronzePlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 15,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
-    },
-    "flightDate" : "2462020",
-    "userFlightId" : 0,
-    "flightCompanions" : 0,
-    "flightCost" : 3000.0
-  }, {
-    "flightState" : 0,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Santiago de Chile",
-    "flightCategory" : {
-      "type" : "GoldPlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 15,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 0,
-    "flightCost" : 6000.0
-  } ]
+  "flightsList" : [ ]
 }, {
   "userName" : "eldam",
   "userLastName" : "diamrti",
@@ -107,56 +11,8 @@
   "userAge" : 32,
   "flightsList" : [ {
     "flightState" : 1,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Santiago de Chile",
-    "flightCategory" : {
-      "type" : "BronzePlane",
-      "fuelCapacity" : 3000,
-      "costPerKM" : 150.0,
-      "passengerCapacity" : 7,
-      "speed" : 880.0,
-      "propulsionType" : "PROPELLERENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 2,
-    "flightCost" : 10000.0
-  }, {
-    "flightState" : 1,
-    "flightOrigin" : "Cordoba",
-    "flightDestiny" : "Buenos Aires",
-    "flightCategory" : {
-      "type" : "GoldPlane",
-      "fuelCapacity" : 3000,
-      "costPerKM" : 150.0,
-      "passengerCapacity" : 7,
-      "speed" : 880.0,
-      "propulsionType" : "PROPELLERENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 3,
-    "flightCost" : 16500.0
-  }, {
-    "flightState" : 1,
-    "flightOrigin" : "Montevideo",
-    "flightDestiny" : "Cordoba",
-    "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 3000,
-      "costPerKM" : 150.0,
-      "passengerCapacity" : 7,
-      "speed" : 880.0,
-      "propulsionType" : "PROPELLERENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 2,
-    "flightCost" : 11000.0
-  }, {
-    "flightState" : 0,
     "flightOrigin" : "Santiago de Chile",
-    "flightDestiny" : "Montevideo",
+    "flightDestiny" : "Cordoba",
     "flightCategory" : {
       "type" : "BronzePlane",
       "fuelCapacity" : 150000,
@@ -165,26 +21,9 @@
       "speed" : 2180.0,
       "propulsionType" : "REACTIONENGINE"
     },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 4,
-    "flightCost" : 17000.0
-  }, {
-    "flightState" : 1,
-    "flightOrigin" : "Cordoba",
-    "flightDestiny" : "Buenos Aires",
-    "flightCategory" : {
-      "type" : "SilverPlane",
-      "fuelCapacity" : 10000,
-      "costPerKM" : 225.0,
-      "passengerCapacity" : 15,
-      "speed" : 855.0,
-      "propulsionType" : "PISTONSENGINE"
-    },
-    "flightDate" : "2362020",
-    "userFlightId" : 0,
-    "flightCompanions" : 3,
-    "flightCost" : 14500.0
+    "flightDate" : "2562020",
+    "flightCompanions" : 1,
+    "flightCost" : 321500.0
   } ]
 }, {
   "userName" : "gise",
@@ -192,26 +31,4 @@
   "userDocument" : 35012487,
   "userAge" : 30,
   "flightsList" : [ ]
-}, {
-  "userName" : "carlos",
-  "userLastName" : "menem",
-  "userDocument" : 12345678,
-  "userAge" : 89,
-  "flightsList" : [ {
-    "flightState" : 0,
-    "flightOrigin" : "Buenos Aires",
-    "flightDestiny" : "Santiago de Chile",
-    "flightCategory" : {
-      "type" : "BronzePlane",
-      "fuelCapacity" : 3000,
-      "costPerKM" : 150.0,
-      "passengerCapacity" : 7,
-      "speed" : 880.0,
-      "propulsionType" : "PROPELLERENGINE"
-    },
-    "flightDate" : "2462020",
-    "userFlightId" : 0,
-    "flightCompanions" : 2,
-    "flightCost" : 10000.0
-  } ]
 } ]

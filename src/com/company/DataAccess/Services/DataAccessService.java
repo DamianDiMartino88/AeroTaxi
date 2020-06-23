@@ -65,10 +65,6 @@ public class DataAccessService <T> {
         return readCompanyFile();
     }
 
-    //trae la lista de usuarios, compara por documento los usuarios en la lista,
-    //si encuenta coincidencia devuelve el usuariocon sus datos, sino devuelve el objeto con el documento asignado
-    //para crear el nuevousario
-
     /*Recibo un numero de documento llama al metodo checkexistence enviandole la lista de usuarios y devuelvo
      el usuario buscado, o uno nuevo si no hay coincidencias*/
     public User searchUserInData(int document) throws IOException {
