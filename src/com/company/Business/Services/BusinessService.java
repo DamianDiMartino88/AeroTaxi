@@ -203,7 +203,7 @@ public class BusinessService {
     }
 
     public String bestCategory(User user){
-        String bestPlane = "Bronze Plane";
+        String bestPlane =(user.getFlightsList().size()==0)? "No Flights Found":"Bronze Plane";
         String plane = "";
         HashMap<String,Integer> categoryValues = new HashMap<>();
         categoryValues.put("Gold Plane",1);

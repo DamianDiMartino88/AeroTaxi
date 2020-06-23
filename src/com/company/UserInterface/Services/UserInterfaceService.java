@@ -120,6 +120,9 @@ public class UserInterfaceService implements Initializable {
     @FXML private JFXTextField passwordTextField;
     //companyUsersPanel
     @FXML private JFXListView<User> companyUsersListView;
+    @FXML private JFXTextField totalCostTextField;
+    @FXML private JFXTextField bestCategoryTextField;
+
     //companyFlightsPanel
     @FXML private JFXDatePicker companyFlightDatePIcker;
     @FXML private JFXListView companyFlightsListView;
@@ -149,6 +152,8 @@ public class UserInterfaceService implements Initializable {
     ObservableList<UserFlight> cancelListViewContent = FXCollections.observableArrayList();
     ObservableList<UserFlight> accountFlightListViewContent = FXCollections.observableArrayList();
     ObservableList<User> companyUsersListViewContent = FXCollections.observableArrayList();
+    ObservableList<Double> flightCostListViewContent = FXCollections.observableArrayList();
+    ObservableList<String> bestCategoryListViewContent = FXCollections.observableArrayList();
     ObservableList<CompanyFlight> companyScheduledFlightsListViewContent = FXCollections.observableArrayList();
 
     @Override
@@ -722,9 +727,14 @@ public class UserInterfaceService implements Initializable {
         //int id = Integer.parseInt(idCancelTextField.getText());
         //lo busca y me setea el usuario de ahi accedo a la lista de vuelo de ese usuario
         //userExistence(id);
+        List<UserFlight> flightsToLoad = new ArrayList<>();
         cancelFlightList.clear();
-        cancelFlightList.addAll(changeCancelLIst(user.getFlightsList()));
-
+        for (UserFlight userFlightList: user.getFlightsList()){
+            if(userFlightList.getFlightState()==1){
+                flightsToLoad.add(userFlightList);
+            }
+        }
+        cancelFlightList.addAll(changeCancelLIst(flightsToLoad));
     }
 
     public void onCancelSearchButtonClicked (ActionEvent event) throws IOException {
@@ -737,18 +747,18 @@ public class UserInterfaceService implements Initializable {
             alert.setHeaderText("Empty text/number field");
             alert.setContentText("All fields are required");
             alert.showAndWait();
-        }else{
+        }else
             userExistence(id);
-            if (user.getUserDocument()==0){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cancel Flight");
-                alert.setHeaderText("No user found");
-                alert.setContentText("Insert a valid id");
-                alert.showAndWait();
-            }else{
-                loadCancelListContent(cancelListViewContent);
-            }
+        if (user.getUserName().equals("")&&user.getUserLastName().equals("")&&user.getUserAge()==0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cancel Flight");
+            alert.setHeaderText("No user found");
+            alert.setContentText("Insert a valid id");
+            alert.showAndWait();
+        }else{
+            loadCancelListContent(cancelListViewContent);
         }
+        idCancelTextField.clear();
     }
 
     public void onCancelBookingButtonClicked (ActionEvent event) throws IOException {
@@ -758,7 +768,28 @@ public class UserInterfaceService implements Initializable {
         //vuelvo a la pagina principal
         //valor seleccionado a borrar de la lista de usuario y de la compania, aca solo lo estoy borrando de mi variable usuario que cargue cuando chequie el id
         uFlight= cancelListView.getSelectionModel().getSelectedItem();
+        System.out.println(uFlight.toString());
         cancelFlight(user, uFlight);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cancel Flight");
+        alert.setHeaderText("Your flight has been canceled");
+        alert.showAndWait();
+        startPanel.setVisible(true);
+        companyFlightsPanel.setVisible(false);
+        idRegisterPanel.setVisible(false);
+        registerPanel.setVisible(false);
+        bookAflightPanel.setVisible(false);
+        pickAflightPanel.setVisible(false);
+        cancelAflightPanel.setVisible(false);
+        flightToCancelPanel.setVisible(false);
+        myAccountPanel.setVisible(false);
+        userAccountPanel.setVisible(false);
+        companyPasswordPanel.setVisible(false);
+        companyChoicePanel.setVisible(false);
+        companyFlightsListPanel.setVisible(false);
+        companyUsersPanel.setVisible(false);
+
     }
 
     public void onAccountButtonClicked (ActionEvent event) throws IOException {
@@ -774,30 +805,40 @@ public class UserInterfaceService implements Initializable {
             alert.showAndWait();
         }else
             userExistence(id);
-            if(user.getUserName().equals("")&&user.getUserLastName().equals("")&&user.getUserAge()==0){
+
+        if(user.getUserName().equals("")&&user.getUserLastName().equals("")&&user.getUserAge()==0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("My Account");
             alert.setHeaderText("No user Found");
             alert.showAndWait();
         }else{
-        userAccountPanel.setVisible(true);
-        companyPasswordPanel.setVisible(false);
-        myAccountPanel.setVisible(false);
-        cancelAflightPanel.setVisible(false);
-        startPanel.setVisible(false);
-        pickAflightPanel.setVisible(false);
-        bookAflightPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        companyFlightsPanel.setVisible(false);
-        companyChoicePanel.setVisible(false);
-        companyFlightsListPanel.setVisible(false);
-        companyUsersPanel.setVisible(false);
+            userAccountPanel.setVisible(true);
+            companyPasswordPanel.setVisible(false);
+            myAccountPanel.setVisible(false);
+            cancelAflightPanel.setVisible(false);
+            startPanel.setVisible(false);
+            pickAflightPanel.setVisible(false);
+            bookAflightPanel.setVisible(false);
+            registerPanel.setVisible(false);
+            companyFlightsPanel.setVisible(false);
+            companyChoicePanel.setVisible(false);
+            companyFlightsListPanel.setVisible(false);
+            companyUsersPanel.setVisible(false);
         }
         System.out.println(user.toString());
+        loadAccountFlightsList(accountFlightListViewContent);
+
+
+        idAccountTextField.clear();
 
         //aca tengo que ver como mostrar en los text field los datos de user
         //seria user.getName() y volcarlo en el accountNameTextField.
 
+    }
+
+    public void loadAccountFlightsList (ObservableList<UserFlight> accountFlightList){
+        accountFlightList.clear();
+        accountFlightList.addAll(user.getFlightsList());
     }
 
     public void verifyPassword (ActionEvent event){
@@ -844,6 +885,21 @@ public class UserInterfaceService implements Initializable {
         companyFlightsListPanel.setVisible(false);
 
         loadCompanyUsersList(companyUsersListViewContent);
+
+       // User u = new User();
+
+        //u = companyUsersListView.getSelectionModel().getSelectedItem();
+        //System.out.println(u.toString());
+    }
+
+    public void onPickAuserClicked (MouseEvent event){
+
+        //User u = new User();
+        User u = companyUsersListView.getSelectionModel().getSelectedItem();
+        System.out.println(u.toString());
+        bestCategoryTextField.setText(businessService.bestCategory(u));
+        totalCostTextField.setText((String.valueOf(businessService.totalFlightsCost(u))));
+
     }
 
     public void loadCompanyUsersList (ObservableList<User> companyUsersList) throws IOException {

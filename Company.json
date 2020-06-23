@@ -1,39 +1,11 @@
 {
   "planesList" : [ {
-    "type" : "SilverPlane",
-    "fuelCapacity" : 150000,
-    "costPerKM" : 300.0,
-    "passengerCapacity" : 25,
-    "speed" : 2180.0,
-    "propulsionType" : "REACTIONENGINE"
-  }, {
     "type" : "BronzePlane",
     "fuelCapacity" : 3000,
     "costPerKM" : 150.0,
     "passengerCapacity" : 7,
     "speed" : 880.0,
     "propulsionType" : "PROPELLERENGINE"
-  }, {
-    "type" : "GoldPlane",
-    "fuelCapacity" : 150000,
-    "costPerKM" : 300.0,
-    "passengerCapacity" : 25,
-    "speed" : 2180.0,
-    "propulsionType" : "REACTIONENGINE"
-  }, {
-    "type" : "BronzePlane",
-    "fuelCapacity" : 10000,
-    "costPerKM" : 225.0,
-    "passengerCapacity" : 15,
-    "speed" : 855.0,
-    "propulsionType" : "PISTONSENGINE"
-  }, {
-    "type" : "SilverPlane",
-    "fuelCapacity" : 10000,
-    "costPerKM" : 225.0,
-    "passengerCapacity" : 15,
-    "speed" : 855.0,
-    "propulsionType" : "PISTONSENGINE"
   }, {
     "type" : "GoldPlane",
     "fuelCapacity" : 3000,
@@ -62,6 +34,34 @@
     "passengerCapacity" : 15,
     "speed" : 855.0,
     "propulsionType" : "PISTONSENGINE"
+  }, {
+    "type" : "SilverPlane",
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 15,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "type" : "BronzePlane",
+    "fuelCapacity" : 10000,
+    "costPerKM" : 225.0,
+    "passengerCapacity" : 15,
+    "speed" : 855.0,
+    "propulsionType" : "PISTONSENGINE"
+  }, {
+    "type" : "GoldPlane",
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 25,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
+  }, {
+    "type" : "SilverPlane",
+    "fuelCapacity" : 150000,
+    "costPerKM" : 300.0,
+    "passengerCapacity" : 25,
+    "speed" : 2180.0,
+    "propulsionType" : "REACTIONENGINE"
   } ],
   "citysList" : [ "Buenos_Aires", "Cordoba", "Santiago_de_Chile", "Montevideo" ],
   "companyFlightsList" : [ {
@@ -106,5 +106,19 @@
     },
     "flightDate" : "2362020",
     "flightPassengers" : 10
+  }, {
+    "flightState" : 0,
+    "flightOrigin" : "Cordoba",
+    "flightDestiny" : "Montevideo",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 150000,
+      "costPerKM" : 300.0,
+      "passengerCapacity" : 25,
+      "speed" : 2180.0,
+      "propulsionType" : "REACTIONENGINE"
+    },
+    "flightDate" : "2362020",
+    "flightPassengers" : 2
   } ]
 }
