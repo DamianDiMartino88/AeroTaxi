@@ -12,4 +12,8 @@ public class UserInterfaceValidations {
         return((String.valueOf(document).isEmpty())?true :false);
     }
 
+    public boolean checkAge (int age){
+        return ((age>120)? false : true);
+    }
+
 }

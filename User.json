@@ -3,7 +3,37 @@
   "userLastName" : "valeria",
   "userDocument" : 37010807,
   "userAge" : 28,
-  "flightsList" : [ ]
+  "flightsList" : [ {
+    "flightState" : 0,
+    "flightOrigin" : "Buenos Aires",
+    "flightDestiny" : "Montevideo",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 3000,
+      "costPerKM" : 150.0,
+      "passengerCapacity" : 7,
+      "speed" : 880.0,
+      "propulsionType" : "PROPELLERENGINE"
+    },
+    "flightDate" : "2562020",
+    "flightCompanions" : 2,
+    "flightCost" : 153500.0
+  }, {
+    "flightState" : 1,
+    "flightOrigin" : "Santiago de Chile",
+    "flightDestiny" : "Montevideo",
+    "flightCategory" : {
+      "type" : "SilverPlane",
+      "fuelCapacity" : 3000,
+      "costPerKM" : 150.0,
+      "passengerCapacity" : 7,
+      "speed" : 880.0,
+      "propulsionType" : "PROPELLERENGINE"
+    },
+    "flightDate" : "2462020",
+    "flightCompanions" : 2,
+    "flightCost" : 326000.0
+  } ]
 }, {
   "userName" : "eldam",
   "userLastName" : "diamrti",
@@ -31,4 +61,25 @@
   "userDocument" : 35012487,
   "userAge" : 30,
   "flightsList" : [ ]
+}, {
+  "userName" : "maria",
+  "userLastName" : "perez",
+  "userDocument" : 30000000,
+  "userAge" : 50,
+  "flightsList" : [ {
+    "flightState" : 1,
+    "flightOrigin" : "Cordoba",
+    "flightDestiny" : "Buenos Aires",
+    "flightCategory" : {
+      "type" : "BronzePlane",
+      "fuelCapacity" : 150000,
+      "costPerKM" : 300.0,
+      "passengerCapacity" : 25,
+      "speed" : 2180.0,
+      "propulsionType" : "REACTIONENGINE"
+    },
+    "flightDate" : "2662020",
+    "flightCompanions" : 0,
+    "flightCost" : 211500.0
+  } ]
 } ]

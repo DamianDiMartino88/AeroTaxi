@@ -21,30 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a3c877bf-4783-4e6f-a3d6-3c3eea2b7363" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Company.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Company.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/CompanyFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/CompanyFlight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/BronzePlane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/GoldPlane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/Plane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/PropulsionType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/AeroTaxiCompany/Plane/SilverPlane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/BusinessValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/BusinessValidation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/Services/BusinessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/Flight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/UserFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Business/User/UserFlight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/DataAccessValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/DataAccess/DataAccessValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company.json" beforeDir="false" afterPath="$PROJECT_DIR$/Company.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.json" beforeDir="false" afterPath="$PROJECT_DIR$/User.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/UserInterface/Services/UserInterfaceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DataAccess/Services/DataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/Services/UserInterfaceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface/UserInterfaceValidations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface/UserInterfaceValidations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP Final/AeroTaxi 1.0.20" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -138,13 +123,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1592790738061">
@@ -169,26 +153,26 @@
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592948769749" />
     <state x="521" y="135" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592937419048" />
-    <state width="1323" height="140" key="GridCell.Tab.0.bottom" timestamp="1592949838884">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="93" key="GridCell.Tab.0.bottom" timestamp="1592957763781">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="140" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592949838883" />
-    <state width="1493" height="250" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592937778114" />
-    <state width="1323" height="140" key="GridCell.Tab.0.center" timestamp="1592949838883">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="93" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592957763781" />
+    <state width="1493" height="93" key="GridCell.Tab.0.center" timestamp="1592957763781">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="140" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592949838883" />
-    <state width="1493" height="250" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592937778113" />
-    <state width="1323" height="140" key="GridCell.Tab.0.left" timestamp="1592949838883">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="93" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592957763781" />
+    <state width="1493" height="93" key="GridCell.Tab.0.left" timestamp="1592957763781">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="140" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592949838883" />
-    <state width="1493" height="250" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592937778113" />
-    <state width="1323" height="140" key="GridCell.Tab.0.right" timestamp="1592949838883">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1493" height="93" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592957763781" />
+    <state width="1493" height="93" key="GridCell.Tab.0.right" timestamp="1592957763781">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="140" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592949838883" />
-    <state width="1493" height="250" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592937778113" />
+    <state width="1493" height="93" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592957763781" />
     <state width="1323" height="142" key="GridCell.Tab.1.bottom" timestamp="1592949489082">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
